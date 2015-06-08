@@ -175,6 +175,7 @@
                                     <th data-column-id="direccion" data-width="20%">Direccion</th>
                                     <th data-column-id="telefono" data-width="100px">Telefono</th>
                                     <th data-column-id="estado" data-width="100px">Estado</th>
+                                    <th data-column-id="actions" align="center" data-formatter="actions" data-width="100px">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -210,7 +211,23 @@
     <script src="js/bootgrid-1.2.0/jquery.bootgrid.fa.js"></script>
 
     <script>
-        $("#grid-basic").bootgrid();
+
+        function init()
+        {
+            $("#grid-basic").bootgrid({
+                formatters: {
+                    "actions": function(column, row)
+                    {
+                        return "<a href=\"editUser.php?id="+row.id+"\"><i class='fa fa-pencil fa-fw'></i></a> "+
+                        " <a href=\"crudUser.php?id="+row.id+"&action=delete\"><i class='fa fa-minus-circle fa-fw'></i></a>";
+                    }
+                },
+                rowCount: [-1, 25, 50, 75]
+            });
+        }
+        
+        init();
+
     </script>
 
 </body>
