@@ -16,19 +16,27 @@
 	}
 
 	function crearUsuario(){
-		$nombres = $_POST['nombres'];
-		$apellidos = $_POST['apellidos'];
-		$direccion = $_POST['direccion'];
-		$telefono = $_POST['telefono'];
-		$estado = $_POST['estado'];
+		/* Proteccion de Datos */
+		$params = array(
+			':nombres' => $_POST['nombres'],
+			':apellidos' => $_POST['apellidos'],
+			':direccion' => $_POST['direccion'],
+			':telefono' => $_POST['telefono'],
+			':estado' => $_POST['estado'],
+		);
 
-		$query = "INSERT INTO Usuarios (Nombres, Apellidos, Direccion, Telefono, Estado) VALUES ('".$nombres."', '".$apellidos."','".$direccion."','".$telefono."','".$estado."')";
+		/* Preparamos el query apartir del array $params*/
+		$query = 'INSERT INTO Usuarios 
+					(Nombres, Apellidos, Direccion, Telefono, Estado) 
+				VALUES 
+					(:nombres,:apellidos,:direccion,:telefono,:estado)';
 
-		$result = excuteQuery("Usuarios", "", $query);
+		/* Ejecutamos el query con los parametros */
+		$result = excuteQuery("Usuarios","", $query, $params);
 		if ($result > 0){
 			header('Location: viewUsers.php?result=true');
 		}else{
-			header('Location: addUser.php?result=false');
+			//header('Location: addUser.php?result=false');
 		}
 	}
 
@@ -65,34 +73,54 @@
 
 	function updateUser (){
 
-		$idUser = $_SESSION['idUser'];
-		$nombres = $_POST['nombres'];
-		$apellidos = $_POST['apellidos'];
-		$direccion = $_POST['direccion'];
-		$telefono = $_POST['telefono'];
-		$estado = $_POST['estado'];
+		/* Proteccion de Datos */
+		$params = array(
+			':idUser' => $_SESSION['idUser'],
+			':nombres' => $_POST['nombres'],
+			':apellidos' => $_POST['apellidos'],
+			':direccion' => $_POST['direccion'],
+			':telefono' => $_POST['telefono'],
+			':estado' => $_POST['estado'],
+		);
 
-		$query = "UPDATE Usuarios SET Nombres = '".$nombres."', Apellidos = '".$apellidos."', Direccion = '".$direccion."', Telefono = '".$telefono."', Estado = '".$estado."'  WHERE idUsuario = '".$idUser."';";
+		/* Preparamos el query apartir del array $params*/
+		$query ='UPDATE Usuarios SET
+					Nombres = :nombres,
+					Apellidos = :apellidos,
+					Direccion = :direccion,
+					Telefono = :telefono,
+					Estado = :estado  
+				 WHERE idUsuario = :idUser;
+				';
 
-		$result = excuteQuery("Usuarios", "", $query);
+		$result = excuteQuery("Usuarios", "", $query, $params);
 		if ($result > 0){
 			unset($_SESSION['idUser']);
 			$_SESSION['idUser'] = NULL;
 			header('Location: viewUsers.php?result=true');
 		}else{
-			header('Location: addUser.php?result=false');
+			header('Location: editUser.php?result=false');
 		}
 	}
 
 	function deleteUser (){
 
 		$idUser = $_GET['id'];
-		$query = "DELETE FROM Usuarios WHERE idUsuario ='".$idUser."';";
-		$result = excuteQuery("Usuarios", "", $query);
+
+		/* Proteccion de Datos */
+		$params = array(
+			':id' => $_GET['id'],
+		);
+
+		/* Preparamos el query apartir del array $params*/
+		$query ='DELETE FROM Usuarios
+				 WHERE idUsuario = :id;';
+
+		$result = excuteQuery("Usuarios", "", $query, $params);
 		if ($result > 0){
 			header('Location: viewUsers.php?result=true');
 		}else{
-			header('Location: addUser.php?result=false');
+			header('Location: viewUser.php?result=false');
 		}
 	}
 

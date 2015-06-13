@@ -23,13 +23,18 @@
 		}
 	}
 
-	function excuteQuery ($nameDB = "Usuarios", $pathDB = "", $query){
+	function excuteQuery ($nameDB = "Usuarios", $pathDB = "", $query, $params=NULL){
 		try {
 			/* Creacion de la Base de Datos o Seleccion de la misma*/
 		    $db = new PDO("sqlite:".$pathDB.$nameDB.".sqlite"); //Creamos una conexion
-		    
-		    /* Intentamos Ejecutar el Query */
-		    $result = $db->exec($query);
+		    if ($params === NULL){
+				/* Intentamos Ejecutar el Query */
+		    	$result = $db->exec($query);
+		    }else{
+		    	/* Intentamos Ejecutar el Query */
+		    	$cmd = $db->prepare($query);
+		    	$result = $cmd->execute($params);
+		    }
 
 		    $db = NULL; //Cerramos la conexion a la Base de datos.
 		    return ($result);
