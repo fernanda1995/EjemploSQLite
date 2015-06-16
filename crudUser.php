@@ -1,6 +1,7 @@
 <?php
 	session_start();
 	require_once("install.php");
+	/* REQUEST = $_POST $_GET */
 	if (!empty($_REQUEST['action'])){
 		$accion = $_REQUEST['action'];
 		if($accion == 'crear'){
@@ -36,7 +37,7 @@
 		if ($result > 0){
 			header('Location: viewUsers.php?result=true');
 		}else{
-			//header('Location: addUser.php?result=false');
+			header('Location: addUser.php?result=false');
 		}
 	}
 

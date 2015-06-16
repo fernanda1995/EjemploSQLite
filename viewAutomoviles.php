@@ -1,4 +1,4 @@
-<?php require_once "install.php"; ?>
+<?php require_once "crudAutomoviles.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,10 +10,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Instalacion - Gestion de Usuarios</title>
+    <title>Admin - Usuarios</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="js/bootgrid-1.2.0/jquery.bootgrid.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="css/sb-admin.css" rel="stylesheet">
@@ -44,13 +45,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">SB Admin</a>
+                <a class="navbar-brand" href="index.html">Admin Users</a>
             </div>
 
             <?php include_once "menuitems.php" ?>
 
             <?php include_once "menu.php"; ?>
 
+            <!-- /.navbar-collapse -->
         </nav>
 
         <div id="page-wrapper">
@@ -61,15 +63,11 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Instalacion
-                            <small>Usuarios</small>
+                            Administracion <small>de Automoviles</small>
                         </h1>
                         <ol class="breadcrumb">
-                            <li>
-                                <i class="fa fa-dashboard"></i>  <a href="index.html">Instalacion</a>
-                            </li>
                             <li class="active">
-                                <i class="fa fa-file"></i> Tablas y Base de Datos
+                                <i class="fa fa-dashboard"></i> Principal
                             </li>
                         </ol>
                     </div>
@@ -80,20 +78,36 @@
                     <div class="col-lg-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-spinner fa-spin fa-fw"></i> Instalacion de la Base de Datos</h3>
+                                <h3 class="panel-title"><i class="fa fa-car fa-fw"></i> Automoviles</h3>
                             </div>
                             <div class="panel-body">
                                 
-                                <?php createDB (); ?>
-                                <br/>
-                                <div class="alert alert-success">
-                                    <strong>Proceso Completado!</strong> Se ha creado la base de datos.
-                                </div>
+                        <table id="grid-basic" class="table table-condensed table-hover table-striped" data-selection="true" data-multi-select="true" data-row-select="true">
+                            <thead>
+                                <tr>
+                                    <th data-column-id="id" data-align="left" data-width="40px" data-type="numeric" data-order="asc">ID</th>
+                                    <th data-column-id="marca" data-width="25%" data-align="left" data-header-align="center">marca</th>
+                                    <th data-column-id="modelo" data-width="25%">Modelo</th>
+                                    <th data-column-id="color" data-width="20%">Color</th>
+                                    <th data-column-id="placa" data-width="100px">Placa</th>
+                                    <th data-column-id="estado" data-width="100px">Estado</th>
+                                    <th data-column-id="actions" align="center" data-formatter="actions" data-width="100px">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php echo verAutomovil(); ?>
+                            </tbody>
+                        </table>
 
                             </div>
                         </div>
                     </div>
                 </div>
+                <a type="button" href="addAutomovil.php" class="btn btn-primary pull-right"><i class="fa fa-plus fa-fw"></i> Agregar</a>
+
+                
+
+                <!-- /.row -->
 
             </div>
             <!-- /.container-fluid -->
@@ -109,6 +123,28 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootgrid-1.2.0/jquery.bootgrid.js"></script>
+    <script src="js/bootgrid-1.2.0/jquery.bootgrid.fa.js"></script>
+
+    <script>
+
+        function init()
+        {
+            $("#grid-basic").bootgrid({
+                formatters: {
+                    "actions": function(column, row)
+                    {
+                        return "<a href=\"editAutomovil.php?id="+row.id+"\"><i class='fa fa-pencil fa-fw'></i></a> "+
+                        " <a href=\"crudAutomoviles.php?id="+row.id+"&action=delete\"><i class='fa fa-minus-circle fa-fw'></i></a>";
+                    }
+                },
+                rowCount: [-1, 25, 50, 75]
+            });
+        }
+        
+        init();
+
+    </script>
 
 </body>
 
