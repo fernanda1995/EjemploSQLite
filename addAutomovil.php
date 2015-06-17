@@ -148,6 +148,7 @@
             </ul>
 
              <?php include_once "menu.php"; ?>
+             
             <!-- /.navbar-collapse -->
         </nav>
 
