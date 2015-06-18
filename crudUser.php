@@ -19,18 +19,23 @@
 	function crearUsuario(){
 		/* Proteccion de Datos */
 		$params = array(
-			':nombres' => $_POST['nombres'],
-			':apellidos' => $_POST['apellidos'],
-			':direccion' => $_POST['direccion'],
-			':telefono' => $_POST['telefono'],
-			':estado' => $_POST['estado'],
+			':usuario' => $_POST['usuario'],
+			':contrasena' => $_POST['contrasena'],
+			':nombre' => $_POST['nombre'],
+			':apellidouno' => $_POST['apellidouno'],
+			':apellidodos' => $_POST['apellidodos'],
+			':titulo' => $_POST['titulo'],
+			':descripcion' => $_POST['descripcion'],
+			':foto' => $_POST['foto'],
+			':email'	=> $_POST['email'],
+			':permisos' => $_POST['permisos'],	
 		);
 
 		/* Preparamos el query apartir del array $params*/
 		$query = 'INSERT INTO Usuarios 
-					(Nombres, Apellidos, Direccion, Telefono, Estado) 
+					(usuario,contrasena, nombre,apellidouno,apellidodos,titulo,descripcion,foto,email,permisos) 
 				VALUES 
-					(:nombres,:apellidos,:direccion,:telefono,:estado)';
+					(:usuario,:contrasena, :nombre,:apellidouno,:apellidodos,:titulo,:descripcion,:foto,:email,:permisos)';
 
 		/* Ejecutamos el query con los parametros */
 		$result = excuteQuery("Usuarios","", $query, $params);
@@ -47,12 +52,17 @@
 		if ($result != false || $result > 0){
 			foreach ($result as $value) {
 				echo "<tr>";
-				echo "    <td>".$value['idUsuario']."</td>";
-				echo "    <td>".$value['Nombres']."</td>";
-				echo "    <td>".$value['Apellidos']."</td>";
-				echo "    <td>".$value['Direccion']."</td>";
-				echo "    <td>".$value['Telefono']."</td>";
-				echo "    <td>".$value['Estado']."</td>";
+				echo "    <td>".$value['usuario']."</td>";
+				echo "    <td>".$value['contrasena']."</td>";
+				echo "    <td>".$value['nombre']."</td>";
+				echo "    <td>".$value['apellidouno']."</td>";
+				echo "    <td>".$value['apellidodos']."</td>";
+				echo "    <td>".$value['titulo']."</td>";
+				echo "    <td>".$value['descripcion']."</td>";
+				echo "    <td>".$value['foto']."</td>";
+				echo "    <td>".$value['email']."</td>";
+				echo "    <td>".$value['permisos']."</td>";
+			
 				echo "</tr>";
 			}
 		}else{
@@ -77,18 +87,28 @@
 		/* Proteccion de Datos */
 		$params = array(
 			':idUser' => $_SESSION['idUser'],
-			':nombres' => $_POST['nombres'],
-			':apellidos' => $_POST['apellidos'],
-			':direccion' => $_POST['direccion'],
-			':telefono' => $_POST['telefono'],
-			':estado' => $_POST['estado'],
+			':usuario' => $_POST['usuario'],
+			':contrasena' => $_POST['contrasena'],
+			':nombre' => $_POST['nombre'],
+			':apellidouno' => $_POST['apellidouno'],
+			':apellidodos' => $_POST['apellidodos'],
+			':titulo' => $_POST['titulo'],
+			':descripcion' => $_POST['descripcion'],
+			':foto' => $_POST['foto'],
+			':email'	=> $_POST['email'],
+			':permisos' => $_POST['permisos'],	
 		);
 
 		/* Preparamos el query apartir del array $params*/
 		$query ='UPDATE Usuarios SET
-					Nombres = :nombres,
-					Apellidos = :apellidos,
-					Direccion = :direccion,
+					usuario = :usuario,
+					contrasena= :contrasena,
+					nombre = :nombre,
+					apellidouno = :apellidouno,
+					apellidodos = :apellidodos,  
+					titulo = :titulo,
+					descripcion= :descripcion,
+					nombre = :nombre,
 					Telefono = :telefono,
 					Estado = :estado  
 				 WHERE idUsuario = :idUser;
