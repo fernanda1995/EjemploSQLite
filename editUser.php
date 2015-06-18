@@ -176,6 +176,7 @@ require_once "crudUser.php";
                 </div>
                 <!-- /.row -->
 
+
                 <?php if(empty($_GET['id'])){ ?>
                     <div class="alert alert-danger">
                         <strong>Error!</strong> No se encontro un usuario al que aplicar esta accion.
