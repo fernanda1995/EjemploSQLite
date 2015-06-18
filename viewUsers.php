@@ -171,10 +171,16 @@
                                 <tr>
                                     <th data-column-id="id" data-align="left" data-width="40px" data-type="numeric" data-order="asc">ID</th>
                                     <th data-column-id="nombres" data-width="25%" data-align="left" data-header-align="center">Nombres</th>
-                                    <th data-column-id="apellidos" data-width="25%">Apellidos</th>
-                                    <th data-column-id="direccion" data-width="20%">Direccion</th>
-                                    <th data-column-id="telefono" data-width="100px">Telefono</th>
-                                    <th data-column-id="estado" data-width="100px">Estado</th>
+                                    <th data-column-id="apellidos" data-width="25%">Usuario</th>
+                                    <th data-column-id="direccion" data-width="20%">Clave</th>
+                                    <th data-column-id="telefono" data-width="100px">Nombre</th>
+                                    <th data-column-id="estado" data-width="100px">Apellidouno</th>
+                                    <th data-column-id="apellidos" data-width="25%">Apellidodos</th>
+                                    <th data-column-id="direccion" data-width="20%">Titulo</th>
+                                    <th data-column-id="telefono" data-width="100px">Descripcion</th>
+                                    <th data-column-id="estado" data-width="100px">foto</th>
+                                    <th data-column-id="telefono" data-width="100px">Email</th>
+                                    <th data-column-id="estado" data-width="100px">Permisos</th>
                                     <th data-column-id="actions" align="center" data-formatter="actions" data-width="100px">Acciones</th>
                                 </tr>
                             </thead>

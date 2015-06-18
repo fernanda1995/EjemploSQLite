@@ -108,9 +108,9 @@
 					apellidodos = :apellidodos,  
 					titulo = :titulo,
 					descripcion= :descripcion,
-					nombre = :nombre,
-					Telefono = :telefono,
-					Estado = :estado  
+					foto = :foto,
+					email = :email,
+					permisos = :permisos  
 				 WHERE idUsuario = :idUser;
 				';
 

@@ -178,35 +178,63 @@
 
                         <form role="form" id="frmUser" method="post" action="crudUser.php?action=crear">
                             <div class="form-group">
-                                <label>Nombres</label>
-                                <input id="nombres" name="nombres" class="form-control" placeholder="Diego Alonso">
-                                <p class="help-block">Nombres completos del usuario.</p>
+                                <label>Usuario</label>
+                                <input id="nombres" name="nombres" class="form-control" placeholder="maria">
+                                <p class="help-block">Ingrese un nuevo ususario.</p>
                             </div>
 
                             <div class="form-group">
-                                <label>Apellidos</label>
-                                <input id="apellidos" name="apellidos" class="form-control" placeholder="Ojeda Medina">
-                                <p class="help-block">Apellidos completos del usuario.</p>
+                                <label>Clave</label>
+                                <input id="apellidos" name="apellidos" class="form-control" placeholder="******">
+                                <p class="help-block">Ingrese una nueva clave.</p>
                             </div>
 
                             <div class="form-group">
-                                <label>Direccion</label>
-                                <input id="direccion" name="direccion" class="form-control" placeholder="Cra 5 a">
-                                <p class="help-block">Direccion donde vive el usuario.</p>
+                                <label>nombre</label>
+                                <input id="direccion" name="direccion" class="form-control" placeholder="maria fernanda">
+                                <p class="help-block">Digite su nombre.</p>
                             </div>
 
                             <div class="form-group">
-                                <label>Telefono</label>
-                                <input id="telefono" name="telefono" class="form-control" placeholder="3114698751">
-                                <p class="help-block">Telefono donde vive el usuario.</p>
+                                <label>Primer apellido</label>
+                                <input id="telefono" name="telefono" class="form-control" placeholder="sierra">
+                                <p class="help-block">Digite su primer apellido.</p>
+                            </div>
+
+                             <div class="form-group">
+                                <label>Segundo apellido</label>
+                                <input id="telefono" name="telefono" class="form-control" placeholder="ortiz">
+                                <p class="help-block">Digite su segundo apellido.</p>
+                             </div>
+
+                             <div class="form-group">
+                                <label>Titulo</label>
+                                <input id="telefono" name="telefono" class="form-control" placeholder="creacion multimedia">
+                                <p class="help-block">Tigite un titulo.</p>
                             </div>
 
                             <div class="form-group">
-                                <label>Estado</label>
-                                <select id="estado" name="estado" class="form-control">
-                                    <option value="Activo">Activo</option>
-                                    <option value="Inactivo">Inactivo</option>
-                                </select>
+                                <label>Descripcion</label>
+                                <input id="telefono" name="telefono" class="form-control" placeholder="las dimenciones y sus longitudes ">
+                                <p class="help-block">Agrege una descripcion.</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Foto</label>
+                                <input id="telefono" name="telefono" class="form-control" placeholder="foto">
+                                <p class="help-block">Ingrese un nombre de una foto.</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Correo</label>
+                                <input id="telefono" name="telefono" class="form-control" placeholder="mar@....">
+                                <p class="help-block">Digite su correo electronico.</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Permisos</label>
+                                <input id="telefono" name="telefono" class="form-control" placeholder="1">
+                                <p class="help-block">digite un numero para el permiso.</p>
                             </div>
 
                             <button type="submit" class="btn btn-default">Enviar</button>
