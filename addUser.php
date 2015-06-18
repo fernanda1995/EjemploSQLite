@@ -179,61 +179,61 @@
                         <form role="form" id="frmUser" method="post" action="crudUser.php?action=crear">
                             <div class="form-group">
                                 <label>Usuario</label>
-                                <input id="nombres" name="nombres" class="form-control" placeholder="maria">
+                                <input id="usuario" name="usuario" class="form-control" placeholder="maria">
                                 <p class="help-block">Ingrese un nuevo ususario.</p>
                             </div>
 
                             <div class="form-group">
                                 <label>Clave</label>
-                                <input id="apellidos" name="apellidos" class="form-control" placeholder="******">
+                                <input id="contrasena" name="contrasena" class="form-control" placeholder="******">
                                 <p class="help-block">Ingrese una nueva clave.</p>
                             </div>
 
                             <div class="form-group">
                                 <label>nombre</label>
-                                <input id="direccion" name="direccion" class="form-control" placeholder="maria fernanda">
+                                <input id="nombre" name="nombre" class="form-control" placeholder="maria fernanda">
                                 <p class="help-block">Digite su nombre.</p>
                             </div>
 
                             <div class="form-group">
                                 <label>Primer apellido</label>
-                                <input id="telefono" name="telefono" class="form-control" placeholder="sierra">
+                                <input id="apellidouno" name="apellidouno" class="form-control" placeholder="sierra">
                                 <p class="help-block">Digite su primer apellido.</p>
                             </div>
 
                              <div class="form-group">
                                 <label>Segundo apellido</label>
-                                <input id="telefono" name="telefono" class="form-control" placeholder="ortiz">
+                                <input id="apellidodos" name="apellidodos" class="form-control" placeholder="ortiz">
                                 <p class="help-block">Digite su segundo apellido.</p>
                              </div>
 
                              <div class="form-group">
                                 <label>Titulo</label>
-                                <input id="telefono" name="telefono" class="form-control" placeholder="creacion multimedia">
+                                <input id="titulo" name="titulo" class="form-control" placeholder="creacion multimedia">
                                 <p class="help-block">Tigite un titulo.</p>
                             </div>
 
                             <div class="form-group">
                                 <label>Descripcion</label>
-                                <input id="telefono" name="telefono" class="form-control" placeholder="las dimenciones y sus longitudes ">
+                                <input id="descripcion" name="descripcion" class="form-control" placeholder="las dimenciones y sus longitudes ">
                                 <p class="help-block">Agrege una descripcion.</p>
                             </div>
 
                             <div class="form-group">
                                 <label>Foto</label>
-                                <input id="telefono" name="telefono" class="form-control" placeholder="foto">
+                                <input id="foto" name="foto" class="form-control" placeholder="foto">
                                 <p class="help-block">Ingrese un nombre de una foto.</p>
                             </div>
 
                             <div class="form-group">
                                 <label>Correo</label>
-                                <input id="telefono" name="telefono" class="form-control" placeholder="mar@....">
+                                <input id="email" name="email" class="form-control" placeholder="mar@....">
                                 <p class="help-block">Digite su correo electronico.</p>
                             </div>
 
                             <div class="form-group">
                                 <label>Permisos</label>
-                                <input id="telefono" name="telefono" class="form-control" placeholder="1">
+                                <input id="permisos" name="permisos" class="form-control" placeholder="1">
                                 <p class="help-block">digite un numero para el permiso.</p>
                             </div>
 

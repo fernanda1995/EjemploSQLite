@@ -191,37 +191,67 @@ require_once "crudUser.php";
                     <div class="col-lg-8">
 
                         <form role="form" id="frmUser" method="post" action="crudUser.php?action=update">
-                            <div class="form-group">
-                                <label>Nombres</label>
-                                <input id="nombres" name="nombres" class="form-control" value="<?php echo $arrUser['Nombres']; ?>" placeholder="Nombres Usuario">
-                                <p class="help-block">Nombres completos del usuario.</p>
+
+                           <div class="form-group">
+                                <label>Usuario</label>
+                                <input id="usuario" name="usuario" class="form-control" value="<?php echo $arrUser['usuario']; ?>" placeholder="maria">
+                                <p class="help-block">Ingrese un nuevo ususario.</p>
                             </div>
 
                             <div class="form-group">
-                                <label>Apellidos</label>
-                                <input id="apellidos" name="apellidos" class="form-control" value="<?php echo $arrUser['Apellidos']; ?>" placeholder="Apellidos Usuario">
-                                <p class="help-block">Apellidos completos del usuario.</p>
+                                <label>Clave</label>
+                                <input id="contrasena" name="contrasena" class="form-control"  value="<?php echo $arrUser['contrasena']; ?>" placeholder="******">
+                                <p class="help-block">Ingrese una nueva clave.</p>
                             </div>
 
                             <div class="form-group">
-                                <label>Direccion</label>
-                                <input id="direccion" name="direccion" class="form-control" value="<?php echo $arrUser['Direccion']; ?>" placeholder="Direccion Usuario">
-                                <p class="help-block">Direccion donde vive el usuario.</p>
+                                <label>nombre</label>
+                                <input id="nombre" name="nombre" class="form-control" value="<?php echo $arrUser['nombre']; ?>" placeholder="maria fernanda">
+                                <p class="help-block">Digite su nombre.</p>
                             </div>
 
                             <div class="form-group">
-                                <label>Telefono</label>
-                                <input id="telefono" name="telefono" class="form-control" value="<?php echo $arrUser['Telefono']; ?>" placeholder="31XXXXXXX">
-                                <p class="help-block">Telefono donde vive el usuario.</p>
+                                <label>Primer apellido</label>
+                                <input id="apellidouno" name="apellidouno" class="form-control"  value="<?php echo $arrUser['apellidouno']; ?>" placeholder="sierra">
+                                <p class="help-block">Digite su primer apellido.</p>
+                            </div>
+
+                             <div class="form-group">
+                                <label>Segundo apellido</label>
+                                <input id="apellidodos" name="apellidodos" class="form-control" value="<?php echo $arrUser['apellidodos']; ?>" placeholder="ortiz">
+                                <p class="help-block">Digite su segundo apellido.</p>
+                             </div>
+
+                             <div class="form-group">
+                                <label>Titulo</label>
+                                <input id="titulo" name="titulo" class="form-control" value="<?php echo $arrUser['titulo']; ?>" placeholder="creacion multimedia">
+                                <p class="help-block">Tigite un titulo.</p>
                             </div>
 
                             <div class="form-group">
-                                <label>Estado</label>
-                                <select id="estado" name="estado" class="form-control">
-                                    <option <?php echo ($arrUser['Estado'] == 'Activo') ? "selected='true'" : "" ?>value="Activo">Activo</option>
-                                    <option <?php echo ($arrUser['Estado'] == 'Inactivo') ? "selected='true'" : "" ?>value="Inactivo">Inactivo</option>
-                                </select>
+                                <label>Descripcion</label>
+                                <input id="descripcion" name="descripcion" class="form-control" value="<?php echo $arrUser['descripcion']; ?>" placeholder="las dimenciones y sus longitudes ">
+                                <p class="help-block">Agrege una descripcion.</p>
                             </div>
+
+                            <div class="form-group">
+                                <label>Foto</label>
+                                <input id="foto" name="foto" class="form-control" value="<?php echo $arrUser['foto']; ?>" placeholder="foto">
+                                <p class="help-block">Ingrese un nombre de una foto.</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Correo</label>
+                                <input id="email" name="email" class="form-control" value="<?php echo $arrUser['email']; ?>" placeholder="mar@....">
+                                <p class="help-block">Digite su correo electronico.</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Permisos</label>
+                                <input id="permisos" name="permisos" class="form-control" value="<?php echo $arrUser['permisos']; ?>" placeholder="1">
+                                <p class="help-block">digite un numero para el permiso.</p>
+                            </div>
+
 
                             <button type="submit" class="btn btn-default">Enviar</button>
                             <button type="reset" class="btn btn-default">Limpiar</button>

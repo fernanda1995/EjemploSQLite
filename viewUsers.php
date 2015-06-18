@@ -170,17 +170,16 @@
                             <thead>
                                 <tr>
                                     <th data-column-id="id" data-align="left" data-width="40px" data-type="numeric" data-order="asc">ID</th>
-                                    <th data-column-id="nombres" data-width="25%" data-align="left" data-header-align="center">Nombres</th>
-                                    <th data-column-id="apellidos" data-width="25%">Usuario</th>
-                                    <th data-column-id="direccion" data-width="20%">Clave</th>
-                                    <th data-column-id="telefono" data-width="100px">Nombre</th>
-                                    <th data-column-id="estado" data-width="100px">Apellidouno</th>
-                                    <th data-column-id="apellidos" data-width="25%">Apellidodos</th>
-                                    <th data-column-id="direccion" data-width="20%">Titulo</th>
-                                    <th data-column-id="telefono" data-width="100px">Descripcion</th>
-                                    <th data-column-id="estado" data-width="100px">foto</th>
-                                    <th data-column-id="telefono" data-width="100px">Email</th>
-                                    <th data-column-id="estado" data-width="100px">Permisos</th>
+                                    <th data-column-id="usuario" data-width="25%">Usuario</th>
+                                    <th data-column-id="contrasena" data-width="20%">Clave</th>
+                                    <th data-column-id="nombre" data-width="100px">Nombre</th>
+                                    <th data-column-id="apellidouno" data-width="100px">Apellidouno</th>
+                                    <th data-column-id="apellidodos" data-width="25%">Apellidodos</th>
+                                    <th data-column-id="titulo" data-width="20%">Titulo</th>
+                                    <th data-column-id="descripcion" data-width="100px">Descripcion</th>
+                                    <th data-column-id="foto" data-width="100px">foto</th>
+                                    <th data-column-id="email" data-width="100px">Email</th>
+                                    <th data-column-id="permisos" data-width="100px">Permisos</th>
                                     <th data-column-id="actions" align="center" data-formatter="actions" data-width="100px">Acciones</th>
                                 </tr>
                             </thead>

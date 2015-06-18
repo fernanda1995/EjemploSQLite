@@ -17,6 +17,7 @@
 	}
 
 	function crearUsuario(){
+		var_dump($_POST);
 		/* Proteccion de Datos */
 		$params = array(
 			':usuario' => $_POST['usuario'],
@@ -52,6 +53,7 @@
 		if ($result != false || $result > 0){
 			foreach ($result as $value) {
 				echo "<tr>";
+				echo "    <td>".$value['idUsuario']."</td>";
 				echo "    <td>".$value['usuario']."</td>";
 				echo "    <td>".$value['contrasena']."</td>";
 				echo "    <td>".$value['nombre']."</td>";
