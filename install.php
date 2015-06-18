@@ -19,8 +19,7 @@
 						'titulo'	TEXT NOT NULL,
 						'descripcion'	TEXT NOT NULL,
 						'foto'	TEXT NOT NULL,
-						'email'	TEXT NOT NULL,
-						'permisos'	INTEGER NOT NULL
+						'email'	TEXT NOT NULL						
 						
 					);"; //Creacion del query para crear la tabla.
 		    $result = $db->exec($query); //Ejecutamos el query. Se usa exec para todos los casos excepto para los select.

@@ -1,4 +1,4 @@
-<?php require_once "crudAutomoviles.php"; ?>
+<?php require_once "crudconfigusu.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin - Automoviles</title>
+    <title>Config - Usuarios</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -63,7 +63,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Administracion <small>de Automoviles</small>
+                            Configuracion <small>de Usuarios</small>
                         </h1>
                         <ol class="breadcrumb">
                             <li class="active">
@@ -86,11 +86,9 @@
                             <thead>
                                 <tr>
                                     <th data-column-id="id" data-align="left" data-width="40px" data-type="numeric" data-order="asc">ID</th>
-                                    <th data-column-id="marca" data-width="25%" data-align="left" data-header-align="center">marca</th>
-                                    <th data-column-id="modelo" data-width="25%">Modelo</th>
-                                    <th data-column-id="color" data-width="20%">Color</th>
-                                    <th data-column-id="placa" data-width="100px">Placa</th>
-                                    <th data-column-id="estado" data-width="100px">Estado</th>
+                                    <th data-column-id="usuario" data-width="25%" data-align="left" data-header-align="center">Usuario</th>
+                                    <th data-column-id="piel" data-width="25%">Piel</th>
+                                    <th data-column-id="respuestas" data-width="20%">Respuesta</th>
                                     <th data-column-id="actions" align="center" data-formatter="actions" data-width="100px">Acciones</th>
                                 </tr>
                             </thead>

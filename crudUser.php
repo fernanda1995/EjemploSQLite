@@ -29,14 +29,14 @@
 			':descripcion' => $_POST['descripcion'],
 			':foto' => $_POST['foto'],
 			':email'	=> $_POST['email'],
-			':permisos' => $_POST['permisos'],	
+				
 		);
 
 		/* Preparamos el query apartir del array $params*/
 		$query = 'INSERT INTO Usuarios 
-					(usuario,contrasena, nombre,apellidouno,apellidodos,titulo,descripcion,foto,email,permisos) 
+					(usuario,contrasena, nombre,apellidouno,apellidodos,titulo,descripcion,foto,email) 
 				VALUES 
-					(:usuario,:contrasena, :nombre,:apellidouno,:apellidodos,:titulo,:descripcion,:foto,:email,:permisos)';
+					(:usuario,:contrasena, :nombre,:apellidouno,:apellidodos,:titulo,:descripcion,:foto,:email)';
 
 		/* Ejecutamos el query con los parametros */
 		$result = excuteQuery("Usuarios","", $query, $params);
@@ -63,8 +63,7 @@
 				echo "    <td>".$value['descripcion']."</td>";
 				echo "    <td>".$value['foto']."</td>";
 				echo "    <td>".$value['email']."</td>";
-				echo "    <td>".$value['permisos']."</td>";
-			
+							
 				echo "</tr>";
 			}
 		}else{
@@ -97,9 +96,8 @@
 			':titulo' => $_POST['titulo'],
 			':descripcion' => $_POST['descripcion'],
 			':foto' => $_POST['foto'],
-			':email'	=> $_POST['email'],
-			':permisos' => $_POST['permisos'],	
-		);
+			':email'	=> $_POST['email']
+			);
 
 		/* Preparamos el query apartir del array $params*/
 		$query ='UPDATE Usuarios SET
@@ -111,8 +109,7 @@
 					titulo = :titulo,
 					descripcion= :descripcion,
 					foto = :foto,
-					email = :email,
-					permisos = :permisos  
+					email = :email  
 				 WHERE idUsuario = :idUser;
 				';
 

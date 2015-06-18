@@ -5,30 +5,28 @@
 	if (!empty($_REQUEST['action'])){
 		$accion = $_REQUEST['action'];
 		if($accion == 'crear'){
-			crearAutomovil();
+			crearcofig();
 		}else if ($accion == 'ver'){
-			verAutomovil();
+			verconfig();
 		}else if ($accion == 'update'){
-			updateAutomovil();
+			updateconfig();
 		}else if ($accion == 'delete'){
-			deleteAutomovil();
+			deleteconfig();
 		}
 
 	}
 
-	function crearAutomovil(){
+	function crearconfig(){
 		/* Proteccion de Datos */
 		$params = array(
-			':marca' => $_POST['marca'],
-			':modelo' => $_POST['modelo'],
-			':color' => $_POST['color'],
-			':placa' => $_POST['placa'],
-			':estado' => $_POST['estado'],
-		);
+			':usuario' => $_POST['usuario'],
+			':piel' => $_POST['piel'],
+			':respuestas' => $_POST['respuestas'],
+			);
 
 		/* Preparamos el query apartir del array $params*/
 		$query = 'INSERT INTO 
-					Automovil (Marca,Modelo,Color,Placa,Estado)
+					Automovil (usuario,piel,respuestas,Placa,Estado)
 				VALUES
 					(:marca,:modelo,:color,:placa,:estado)';
 
@@ -41,7 +39,7 @@
 		}
 	}
 
-	function verAutomovil (){
+	function verconfig (){
 		$query = "SELECT * FROM Automovil";
 		$result = newQuery("Usuarios", "", $query);
 		if ($result != false || $result > 0){
@@ -60,7 +58,7 @@
 		}
 	}
 
-	function getAutomovil($id){
+	function getconfig($id){
 		$query = "SELECT * FROM Automovil WHERE idAutomovil = '".$id."'";
 		$result = newQuery("Usuarios", "", $query);
 		if ($result != false || $result > 0){
@@ -72,7 +70,7 @@
 		}
 	}
 
-	function updateAutomovil (){
+	function updateconfig (){
 
 		/* Proteccion de Datos */
 		$params = array(
@@ -104,7 +102,7 @@
 		}
 	}
 
-	function deleteAutomovil (){
+	function deleteconfig (){
 
 		$idAutomovil = $_GET['id'];
 

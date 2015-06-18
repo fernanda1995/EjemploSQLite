@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Agregar - Usuario</title>
+    <title>Agregar - Automovil</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -45,8 +45,10 @@
                 </button>
                 <a class="navbar-brand" href="index.html">SB Admin</a>
             </div>
+           
              <?php include_once "menuItems.php"; ?>
              <?php include_once "menu.php"; ?>
+             
             <!-- /.navbar-collapse -->
         </nav>
 
@@ -58,11 +60,11 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Agregar Usuario
+                            Agregar Automovil
                         </h1>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-dashboard"></i>  <a href="index.html">Usuarios</a>
+                                <i class="fa fa-dashboard"></i>  <a href="index.html">Automovil</a>
                             </li>
                             <li class="active">
                                 <i class="fa fa-edit"></i> Agregar
@@ -75,59 +77,37 @@
                 <div class="row">
                     <div class="col-lg-8">
 
-                        <form role="form" id="frmUser" method="post" action="crudUser.php?action=crear">
+                        <form role="form" id="frmAuto" method="post" action="crudAutomoviles.php?action=crear">
                             <div class="form-group">
-                                <label>Usuario</label>
-                                <input id="usuario" name="usuario" class="form-control" placeholder="maria">
-                                <p class="help-block">Ingrese un nuevo ususario.</p>
+                                <label>Marca</label>
+                                <input id="marca" name="marca" class="form-control" placeholder="Ferrari">
+                                <p class="help-block">Marca del vehiculo.</p>
                             </div>
 
                             <div class="form-group">
-                                <label>Clave</label>
-                                <input id="contrasena" name="contrasena" class="form-control" placeholder="******">
-                                <p class="help-block">Ingrese una nueva clave.</p>
+                                <label>Modelo</label>
+                                <input id="modelo" name="modelo" class="form-control" placeholder="F15">
+                                <p class="help-block">Año o referencia del vehiculo.</p>
                             </div>
 
                             <div class="form-group">
-                                <label>nombre</label>
-                                <input id="nombre" name="nombre" class="form-control" placeholder="maria fernanda">
-                                <p class="help-block">Digite su nombre.</p>
+                                <label>Color</label>
+                                <input id="color" name="color" class="form-control" placeholder="Azul">
+                                <p class="help-block">Color del vehiculo.</p>
                             </div>
 
                             <div class="form-group">
-                                <label>Primer apellido</label>
-                                <input id="apellidouno" name="apellidouno" class="form-control" placeholder="sierra">
-                                <p class="help-block">Digite su primer apellido.</p>
-                            </div>
-
-                             <div class="form-group">
-                                <label>Segundo apellido</label>
-                                <input id="apellidodos" name="apellidodos" class="form-control" placeholder="ortiz">
-                                <p class="help-block">Digite su segundo apellido.</p>
-                             </div>
-
-                             <div class="form-group">
-                                <label>Titulo</label>
-                                <input id="titulo" name="titulo" class="form-control" placeholder="creacion multimedia">
-                                <p class="help-block">Tigite un titulo.</p>
+                                <label>Placa</label>
+                                <input id="placa" name="placa" class="form-control" placeholder="MKZ-127">
+                                <p class="help-block">Registro de la placa del auto.</p>
                             </div>
 
                             <div class="form-group">
-                                <label>Descripcion</label>
-                                <input id="descripcion" name="descripcion" class="form-control" placeholder="las dimenciones y sus longitudes ">
-                                <p class="help-block">Agrege una descripcion.</p>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Foto</label>
-                                <input id="foto" name="foto" class="form-control" placeholder="foto">
-                                <p class="help-block">Ingrese un nombre de una foto.</p>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Correo</label>
-                                <input id="email" name="email" class="form-control" placeholder="mar@....">
-                                <p class="help-block">Digite su correo electronico.</p>
+                                <label>Estado</label>
+                                <select id="estado" name="estado" class="form-control">
+                                    <option value="Activo">Activo</option>
+                                    <option value="Inactivo">Inactivo</option>
+                                </select>
                             </div>
 
                             <button type="submit" class="btn btn-default">Enviar</button>
