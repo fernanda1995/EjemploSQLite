@@ -5,11 +5,11 @@
 	if (!empty($_REQUEST['action'])){
 		$accion = $_REQUEST['action'];
 		if($accion == 'crear'){
-			crearcofig();
+			crearconfigusuario();
 		}else if ($accion == 'ver'){
-			verconfig();
+			verconfigusuarios();
 		}else if ($accion == 'update'){
-			updateconfig();
+			updateConfig();
 		}else if ($accion == 'delete'){
 			deleteconfig();
 		}

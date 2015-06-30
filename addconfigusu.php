@@ -60,11 +60,11 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Agregar Automovil
+                            Configuracion de Usuarios
                         </h1>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-dashboard"></i>  <a href="index.html">Automovil</a>
+                                <i class="fa fa-dashboard"></i>  <a href="index.html">Config Usuarios</a>
                             </li>
                             <li class="active">
                                 <i class="fa fa-edit"></i> Agregar
@@ -77,42 +77,28 @@
                 <div class="row">
                     <div class="col-lg-8">
 
-                        <form role="form" id="frmAuto" method="post" action="crudAutomoviles.php?action=crear">
+                        <form role="form" id="frmAuto" method="post" action="crudconfigusu.php?action=crear">
                             <div class="form-group">
-                                <label>Marca</label>
-                                <input id="marca" name="marca" class="form-control" placeholder="Ferrari">
-                                <p class="help-block">Marca del vehiculo.</p>
+                                <label>Usuario</label>
+                                <input id="usuario" name="usuario" class="form-control" placeholder="Fernanda">
+                                <p class="help-block">nombre del usuario.</p>
                             </div>
 
                             <div class="form-group">
-                                <label>Modelo</label>
-                                <input id="modelo" name="modelo" class="form-control" placeholder="F15">
-                                <p class="help-block">Año o referencia del vehiculo.</p>
+                                <label>Piel</label>
+                                <input id="piel" name="piel" class="form-control" placeholder="Blanco">
+                                <p class="help-block">Color de piel.</p>
                             </div>
 
                             <div class="form-group">
-                                <label>Color</label>
-                                <input id="color" name="color" class="form-control" placeholder="Azul">
-                                <p class="help-block">Color del vehiculo.</p>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Placa</label>
-                                <input id="placa" name="placa" class="form-control" placeholder="MKZ-127">
-                                <p class="help-block">Registro de la placa del auto.</p>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Estado</label>
-                                <select id="estado" name="estado" class="form-control">
-                                    <option value="Activo">Activo</option>
-                                    <option value="Inactivo">Inactivo</option>
-                                </select>
+                                <label>Respuesta</label>
+                                <input id="respuesta" name="respuesta" class="form-control" placeholder="respuesta">
+                                <p class="help-block">Respuesta al Programa .</p>
                             </div>
 
                             <button type="submit" class="btn btn-default">Enviar</button>
                             <button type="reset" class="btn btn-default">Limpiar</button>
-
+                              
                         </form>
 
                     </div>

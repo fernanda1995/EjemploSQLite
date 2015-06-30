@@ -78,7 +78,7 @@
                     <div class="col-lg-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-car fa-fw"></i> Automoviles</h3>
+                                <h3 class="panel-title"><i class="fa fa-fw fa-wrench"></i> Configuracion de Usuarios</h3>
                             </div>
                             <div class="panel-body">
                                 
@@ -93,7 +93,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php echo verAutomovil(); ?>
+                                <?php echo verconfig(); ?>
                             </tbody>
                         </table>
 
@@ -101,7 +101,7 @@
                         </div>
                     </div>
                 </div>
-                <a type="button" href="addAutomovil.php" class="btn btn-primary pull-right"><i class="fa fa-plus fa-fw"></i> Agregar</a>
+                <a type="button" href="addconfigusu.php" class="btn btn-primary pull-right"><i class="fa fa-plus fa-fw"></i> Agregar</a>
 
                 
 
