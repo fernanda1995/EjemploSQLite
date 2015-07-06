@@ -5,18 +5,18 @@
 	if (!empty($_REQUEST['action'])){
 		$accion = $_REQUEST['action'];
 		if($accion == 'crear'){
-			crearconfigusuario();
+			crearconfigusuarios();
 		}else if ($accion == 'ver'){
 			verconfigusuarios();
 		}else if ($accion == 'update'){
-			updateConfig();
+			updateconfigusuarios();
 		}else if ($accion == 'delete'){
-			deleteconfig();
+			deleteconfigusuarios();
 		}
 
 	}
 
-	function crearconfig(){
+	function crearconfigusuarios(){
 		/* Proteccion de Datos */
 		$params = array(
 			':usuario' => $_POST['usuario'],
@@ -25,21 +25,22 @@
 			);
 
 		/* Preparamos el query apartir del array $params*/
-		$query = 'INSERT INTO 
-					Automovil (usuario,piel,respuestas,Placa,Estado)
+		$query = 'INSERT INTO configusuarios 
+		             (usuario,piel,respuestas)
 				VALUES
-					(:marca,:modelo,:color,:placa,:estado)';
+					 (:usuario,:piel,:respuestas)';
 
 		/* Ejecutamos el query con los parametros */
 		$result = excuteQuery("Usuarios","", $query, $params);
+
 		if ($result > 0){
-			header('Location: viewAutomoviles.php?result=true');
+			header('Location: viewconfigusuarios.php?result=true');
 		}else{
-			header('Location: addAutomovil.php?result=false');
+			header('Location: addconfigusuarios.php?result=false');
 		}
 	}
 
-	function verconfig (){
+	function verconfigusuarios(){
 		$query = "SELECT * FROM Automovil";
 		$result = newQuery("Usuarios", "", $query);
 		if ($result != false || $result > 0){
@@ -58,7 +59,7 @@
 		}
 	}
 
-	function getconfig($id){
+	function getconfigusuarios($id){
 		$query = "SELECT * FROM Automovil WHERE idAutomovil = '".$id."'";
 		$result = newQuery("Usuarios", "", $query);
 		if ($result != false || $result > 0){
@@ -70,7 +71,7 @@
 		}
 	}
 
-	function updateconfig (){
+	function updateconfigusuarios(){
 
 		/* Proteccion de Datos */
 		$params = array(

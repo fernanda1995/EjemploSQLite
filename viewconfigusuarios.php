@@ -1,7 +1,7 @@
-<?php require_once "crudconfigusu.php"; ?>
+<?php require_once "crudconfigusuarios.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
-
+v
 <head>
 
     <meta charset="utf-8">
@@ -49,7 +49,6 @@
             </div>
 
             <?php include_once "menuitems.php" ?>
-
             <?php include_once "menu.php"; ?>
 
             <!-- /.navbar-collapse -->
@@ -93,7 +92,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php echo verconfig(); ?>
+                                <?php echo verconfigusuarios(); ?>
                             </tbody>
                         </table>
 
@@ -101,7 +100,7 @@
                         </div>
                     </div>
                 </div>
-                <a type="button" href="addconfigusu.php" class="btn btn-primary pull-right"><i class="fa fa-plus fa-fw"></i> Agregar</a>
+                <a type="button" href="addconfigusuarios.php" class="btn btn-primary pull-right"><i class="fa fa-plus fa-fw"></i> Agregar</a>
 
                 
 
@@ -132,8 +131,8 @@
                 formatters: {
                     "actions": function(column, row)
                     {
-                        return "<a href=\"editAutomovil.php?id="+row.id+"\"><i class='fa fa-pencil fa-fw'></i></a> "+
-                        " <a href=\"crudAutomoviles.php?id="+row.id+"&action=delete\"><i class='fa fa-minus-circle fa-fw'></i></a>";
+                        return "<a href=\"editconfigusuarios.php?id="+row.id+"\"><i class='fa fa-pencil fa-fw'></i></a> "+
+                        " <a href=\"crudconfigusuarios.php?id="+row.id+"&action=delete\"><i class='fa fa-minus-circle fa-fw'></i></a>";
                     }
                 },
                 rowCount: [-1, 25, 50, 75]

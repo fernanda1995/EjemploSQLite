@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Agregar - Automovil</title>
+    <title>Agregar - Logs</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -48,7 +48,6 @@
            
              <?php include_once "menuItems.php"; ?>
              <?php include_once "menu.php"; ?>
-             
             <!-- /.navbar-collapse -->
         </nav>
 
@@ -60,11 +59,11 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Configuracion de Usuarios
+                            Agregar Logs
                         </h1>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-dashboard"></i>  <a href="index.html">Config Usuarios</a>
+                                <i class="fa fa-dashboard"></i>  <a href="index.html">Logs</a>
                             </li>
                             <li class="active">
                                 <i class="fa fa-edit"></i> Agregar
@@ -77,28 +76,77 @@
                 <div class="row">
                     <div class="col-lg-8">
 
-                        <form role="form" id="frmAuto" method="post" action="crudconfigusu.php?action=crear">
+                        <form role="form" id="frmUser" method="post" action="crudLogs.php?action=crear">
+                            <div class="form-group">
+                                <label>Utc</label>
+                                <input id="Utc" name="Utc" class="form-control" placeholder="156554">
+                                <p class="help-block">Utc.</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Anio</label>
+                                <input id="Anio" name="Anio" class="form-control" placeholder="2015">
+                                <p class="help-block">Anio.</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Mes</label>
+                                <input id="Mes" name="Mes" class="form-control" placeholder="04">
+                                <p class="help-block">Mes.</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Dia</label>
+                                <input id="Dia" name="Dia" class="form-control" placeholder="12">
+                                <p class="help-block">Dia.</p>
+                            </div>
+
+                            
+                            <div class="form-group">
+                                <label>Hora</label>
+                                <input id="Hora" name="Hora" class="form-control" placeholder="14:00">
+                                <p class="help-block">Hora.</p>
+                            </div>
+
+     <div class="form-group">
+                                <label>Segundo</label>
+                                <input id="Segundo" name="Segundo" class="form-control" placeholder="12">
+                                <p class="help-block">Segundo.</p>
+                            </div>
+
+
+     <div class="form-group">
+                                <label>Ip</label>
+                                <input id="Ip" name="Ip" class="form-control" placeholder="05-78657">
+                                <p class="help-block">Ip.</p>
+                            </div>
+
+
+     <div class="form-group">
+                                <label>Navegador</label>
+                                <input id="Navegador" name="Navegador" class="form-control" placeholder="Google">
+                                <p class="help-block">Navegador.</p>
+                            </div>
+
                             <div class="form-group">
                                 <label>Usuario</label>
-                                <input id="usuario" name="usuario" class="form-control" placeholder="Fernanda">
-                                <p class="help-block">nombre del usuario.</p>
+                                <input id="Usuario" name="Usuario" class="form-control" placeholder="mafe">
+                                <p class="help-block">Usuario.</p>
                             </div>
 
-                            <div class="form-group">
-                                <label>Piel</label>
-                                <input id="piel" name="piel" class="form-control" placeholder="Blanco">
-                                <p class="help-block">Color de piel.</p>
-                            </div>
 
                             <div class="form-group">
-                                <label>Respuesta</label>
-                                <input id="respuesta" name="respuesta" class="form-control" placeholder="respuesta">
-                                <p class="help-block">Respuesta al Programa .</p>
+                                <label>Operador</label>
+                                <input id="Operador" name="Operador" class="form-control" placeholder="Operador">
+                                <p class="help-block">Operador.</p>
                             </div>
+
+                            
+
 
                             <button type="submit" class="btn btn-default">Enviar</button>
                             <button type="reset" class="btn btn-default">Limpiar</button>
-                              
+
                         </form>
 
                     </div>

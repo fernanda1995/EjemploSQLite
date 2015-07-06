@@ -1,4 +1,3 @@
-<?php require_once "install.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Instalacion - Gestion de Usuarios</title>
+    <title>Agregar - Configuracion de Usuarios</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -46,10 +45,11 @@
                 </button>
                 <a class="navbar-brand" href="index.html">SB Admin</a>
             </div>
-
-            <?php include_once "menuitems.php" ?>
-            <?php include_once "menu.php"; ?>
-
+           
+             <?php include_once "menuItems.php"; ?>
+             <?php include_once "menu.php"; ?>
+             
+            <!-- /.navbar-collapse -->
         </nav>
 
         <div id="page-wrapper">
@@ -60,15 +60,14 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Instalacion
-                            <small>Usuarios</small>
+                            Configuracion de Usuarios
                         </h1>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-dashboard"></i>  <a href="index.html">Instalacion</a>
+                                <i class="fa fa-dashboard"></i>  <a href="index.html">Config Usuarios</a>
                             </li>
                             <li class="active">
-                                <i class="fa fa-file"></i> Tablas y Base de Datos
+                                <i class="fa fa-edit"></i> Agregar
                             </li>
                         </ol>
                     </div>
@@ -76,23 +75,37 @@
                 <!-- /.row -->
 
                 <div class="row">
-                    <div class="col-lg-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-spinner fa-spin fa-fw"></i> Instalacion de la Base de Datos</h3>
-                            </div>
-                            <div class="panel-body">
-                                
-                                <?php createDB (); ?>
-                                <br/>
-                                <div class="alert alert-success">
-                                    <strong>Proceso Completado!</strong> Se ha creado la base de datos.
-                                </div>
+                    <div class="col-lg-8">
 
+    <title>Agregar - </title>
+                        <form role="form" id="frmAuto" method="post" action="crudconfigusuarios.php?action=crear">
+                            <div class="form-group">
+                                <label>Usuario</label>
+                                <input id="usuario" name="usuario" class="form-control" placeholder="Fernanda">
+                                <p class="help-block">nombre del usuario.</p>
                             </div>
-                        </div>
+
+                            <div class="form-group">
+                                <label>Piel</label>
+                                <input id="piel" name="piel" class="form-control" placeholder="Blanco">
+                                <p class="help-block">Color de piel.</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Respuesta</label>
+                                <input id="respuestas" name="respuestas" class="form-control" placeholder="respuestas">
+                                <p class="help-block">Respuesta al Programa .</p>
+                            </div>
+
+                            <button type="submit" class="btn btn-default">Enviar</button>
+                            <button type="reset" class="btn btn-default">Limpiar</button>
+                              
+                        </form>
+
                     </div>
+
                 </div>
+                <!-- /.row -->
 
             </div>
             <!-- /.container-fluid -->

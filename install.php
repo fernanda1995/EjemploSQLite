@@ -27,7 +27,7 @@
 
 		    /* Creacion de la tabla configusuarios */
 		    $query = "CREATE TABLE `configusuarios` (
-						`idconfig`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+						`idconfigusuarios`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 						`usuario`	TEXT NOT NULL,
 						`piel`	TEXT NOT NULL,
 						`respuestas` TEXT NOT NULL

@@ -8,13 +8,20 @@
                         <a href="viewUsers.php"><i class="fa fa-fw fa-bar-chart-o"></i> Usuarios</a>
                     </li>
                     <li>
-                        <a href="viewconfigusu.php"><i class="fa fa-fw fa-table"></i> configurarusuariarios</a>
+                        <a href="viewconfigusuarios.php"><i class="fa fa-fw fa-table"></i> configurarusuariarios</a>
                     </li>
+                     <li>
+                        <a href="viewPost.php"><i class="fa fa-paw"></i> Post</a>
+                    </li>
+                    <li>
+                        <a href="viewLogs.php"><i class="fa fa-language"></i> Logs</a>
+                    </li>
+                    
                     <li>
                         <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
                     </li>
                     <li>
-                        <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
+                        <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> fdcfgvghvgh  Elements</a>
                     </li>
                     <li>
                         <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Bootstrap Grid</a>
