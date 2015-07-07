@@ -12,7 +12,7 @@ require_once "crudLogs.php";
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Agregar - Logs</title>
+    <title>Editar - Logs</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -60,7 +60,7 @@ require_once "crudLogs.php";
                                         <img class="media-object" src="http://placehold.it/50x50" alt="">
                                     </span>
                                     <div class="media-body">
-                                        <h5 class="media-heading"><strong>Marisol Daza</strong>
+                                        <h5 class="media-heading"><strong>John Smith</strong>
                                         </h5>
                                         <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
                                         <p>Lorem ipsum dolor sit amet, consectetur...</p>
@@ -75,7 +75,7 @@ require_once "crudLogs.php";
                                         <img class="media-object" src="http://placehold.it/50x50" alt="">
                                     </span>
                                     <div class="media-body">
-                                        <h5 class="media-heading"><strong>Marisol Daza</strong>
+                                        <h5 class="media-heading"><strong>John Smith</strong>
                                         </h5>
                                         <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
                                         <p>Lorem ipsum dolor sit amet, consectetur...</p>
@@ -90,7 +90,7 @@ require_once "crudLogs.php";
                                         <img class="media-object" src="http://placehold.it/50x50" alt="">
                                     </span>
                                     <div class="media-body">
-                                        <h5 class="media-heading"><strong>Marisol Daza</strong>
+                                        <h5 class="media-heading"><strong>John Smith</strong>
                                         </h5>
                                         <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
                                         <p>Lorem ipsum dolor sit amet, consectetur...</p>
@@ -131,7 +131,7 @@ require_once "crudLogs.php";
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Marisol Daza <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
@@ -166,7 +166,7 @@ require_once "crudLogs.php";
                         </h1>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-dashboard"></i>  <a href="index.html">Post</a>
+                                <i class="fa fa-dashboard"></i>  <a href="index.html">Logs</a>
                             </li>
                             <li class="active">
                                 <i class="fa fa-edit"></i> Editar
@@ -178,96 +178,78 @@ require_once "crudLogs.php";
 
                 <?php if(empty($_GET['id'])){ ?>
                     <div class="alert alert-danger">
-                        <strong>Error!</strong> No se encontro un logs al que aplicar esta accion.
+                        <strong>Error!</strong> No se encontro un post al que aplicar esta accion.
                     </div>
                 <?php }else{ ?>
 
                 <?php
-                    $_SESSION['idLogs'] = $_GET['id'];
-                    $arrUser = getUser($_SESSION['idLog']);
+                    $_SESSION['idutc'] = $_GET['id'];
+                    $arrlogs = getLogs($_SESSION['idutc']);
                 ?>
                 <div class="row">
                     <div class="col-lg-8">
 
-
-                        <form role="form" id="frmUser" method="post" action="crudLogs.php?action=update">
-                            <div class="form-group">
-                               
-
-                                <label>Utc</label>
-                                <input id="Utc" name="Utc" class="form-control" value="<?php echo $arrUser['Utc']; ?>" placeholder="Utc">
-                                <p class="help-block">Utc.</p>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Anio</label>
-                                <input id="Anio" name="Anio" class="form-control" value="<?php echo $arrUser['Anio']; ?>" placeholder="Anio">
-                                <p class="help-block">Anio.</p>
+                        <form role="form" id="frmEditLogs" method="post" action="crudLogs.php?action=update">
+                            
+                           <div class="form-group">
+                                <label>Año</label>
+                                <input id="anio" name="anio" class="form-control"  value="<?php echo $arrlogs['anio']; ?>" placeholder="2015">
+                                <p class="help-block">Año</p>
                             </div>
 
                             <div class="form-group">
                                 <label>Mes</label>
-                                <input id="Mes" name="Mes" class="form-control" value="<?php echo $arrUser['Mes']; ?>" placeholder="Mes">
-                                <p class="help-block">Mes.</p>
+                                <input id="mes" name="mes" class="form-control" value="<?php echo $arrlogs['mes']; ?>" placeholder="06">
+                                <p class="help-block">Mes</p>
                             </div>
 
                             <div class="form-group">
                                 <label>Dia</label>
-                                <input id="Dia" name="Dia" class="form-control" value="<?php echo $arrUser['Dia']; ?>" placeholder="Dia">
-                                <p class="help-block">Dia.</p>
+                                <input id="dia" name="dia" class="form-control" value="<?php echo $arrlogs['dia']; ?>" placeholder="15">
+                                <p class="help-block">Dia</p>
                             </div>
-
-<div class="form-group">
-                            
-
 
                             <div class="form-group">
                                 <label>Hora</label>
-                                <input id="Hora" name="Hora" class="form-control" value="<?php echo $arrUser['Hora']; ?>" placeholder="Hora">
-                                <p class="help-block">Hora.</p>
+                                <input id="hora" name="hora" class="form-control" value="<?php echo $arrlogs['hora']; ?>" placeholder="02:30 pm">
+                                <p class="help-block">Hora</p>
                             </div>
 
+                            <div class="form-group">
+                                <label>Minuto</label>
+                                <input id="minuto" name="minuto" class="form-control" value="<?php echo $arrlogs['minuto']; ?>" placeholder="11">
+                                <p class="help-block">Minuto</p>
+                            </div>
 
-
-                    
-
-
-                             <div class="form-group">
+                            <div class="form-group">
                                 <label>Segundo</label>
-                                <input id="Segundo" name="Segundo" class="form-control" value="<?php echo $arrUser['Segundo']; ?>" placeholder="Segundo">
-                                <p class="help-block">Segundo.</p>
+                                <input id="segundo" name="segundo" class="form-control" value="<?php echo $arrlogs['segundo']; ?>" placeholder="55">
+                                <p class="help-block">Segundo</p>
                             </div>
 
-
-                             <div class="form-group">
+                            <div class="form-group">
                                 <label>Ip</label>
-                                <input id="Ip" name="Ip" class="form-control" value="<?php echo $arrUser['Ip']; ?>" placeholder="SubTitulo">
-                                <p class="help-block">Ip.</p>
+                                <input id="ip" name="ip" class="form-control" value="<?php echo $arrlogs['ip']; ?>" placeholder="123.465.68">
+                                <p class="help-block">Ip</p>
                             </div>
 
-
-                             <div class="form-group">
+                            <div class="form-group">
                                 <label>Navegador</label>
-                                <input id="Navegador" name="Navegador" class="form-control" value="<?php echo $arrUser['Navegador']; ?>" placeholder="Navegador">
-                                <p class="help-block">Navegador.</p>
+                                <input id="navegador" name="navegador" class="form-control"  value="<?php echo $arrlogs['navegador']; ?>" placeholder="Chrome">
+                                <p class="help-block">navegador</p>
                             </div>
 
-
-                             <div class="form-group">
+                            <div class="form-group">
                                 <label>Usuario</label>
-                                <input id="Usuario" name="Usuario" class="form-control" value="<?php echo $arrUser['Usuario']; ?>" placeholder="Usuario">
-                                <p class="help-block">Usuario.</p>
-                            </div>
-                             <div class="form-group">
-                                <label>Operador</label>
-                                <input id="Operador" name="Operador" class="form-control" value="<?php echo $arrUser['Operador']; ?>" placeholder="Operador">
-                                <p class="help-block">Imagen.</p>
+                                <input id="usuario" name="usuario" class="form-control" value="<?php echo $arrlogs['usuario']; ?>" placeholder="@julieth">
+                                <p class="help-block">usuario</p>
                             </div>
 
-                            
-
-
-
+                            <div class="form-group">
+                                <label>Operacion</label>
+                                <input id="operacion" name="operacion" class="form-control" value="<?php echo $arrlogs['operacion']; ?>" placeholder="operacion">
+                                <p class="help-block">Icono</p>
+                            </div>
                             <button type="submit" class="btn btn-default">Enviar</button>
                             <button type="reset" class="btn btn-default">Limpiar</button>
 

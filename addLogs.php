@@ -45,8 +45,108 @@
                 </button>
                 <a class="navbar-brand" href="index.html">SB Admin</a>
             </div>
-           
-             <?php include_once "menuItems.php"; ?>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu message-dropdown">
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading"><strong>John Smith</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading"><strong>John Smith</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading"><strong>John Smith</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-footer">
+                            <a href="#">Read All New Messages</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu alert-dropdown">
+                        <li>
+                            <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">View All</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
              <?php include_once "menu.php"; ?>
             <!-- /.navbar-collapse -->
         </nav>
@@ -76,73 +176,67 @@
                 <div class="row">
                     <div class="col-lg-8">
 
-                        <form role="form" id="frmUser" method="post" action="crudLogs.php?action=crear">
+                        <form role="form" id="frmAuto" method="post" action="crudLogs.php?action=crear">
                             <div class="form-group">
-                                <label>Utc</label>
-                                <input id="Utc" name="Utc" class="form-control" placeholder="156554">
-                                <p class="help-block">Utc.</p>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Anio</label>
-                                <input id="Anio" name="Anio" class="form-control" placeholder="2015">
-                                <p class="help-block">Anio.</p>
+                                <label>Año</label>
+                                <input id="anio" name="anio" class="form-control" placeholder="2015">
+                                <p class="help-block">Año</p>
                             </div>
 
                             <div class="form-group">
                                 <label>Mes</label>
-                                <input id="Mes" name="Mes" class="form-control" placeholder="04">
-                                <p class="help-block">Mes.</p>
+                                <input id="mes" name="mes" class="form-control" placeholder="06">
+                                <p class="help-block">Mes</p>
                             </div>
 
                             <div class="form-group">
                                 <label>Dia</label>
-                                <input id="Dia" name="Dia" class="form-control" placeholder="12">
-                                <p class="help-block">Dia.</p>
+                                <input id="dia" name="dia" class="form-control" placeholder="15">
+                                <p class="help-block">Dia</p>
                             </div>
 
-                            
                             <div class="form-group">
                                 <label>Hora</label>
-                                <input id="Hora" name="Hora" class="form-control" placeholder="14:00">
-                                <p class="help-block">Hora.</p>
+                                <input id="hora" name="hora" class="form-control" placeholder="02:30 pm">
+                                <p class="help-block">Hora</p>
                             </div>
 
-     <div class="form-group">
+                            <div class="form-group">
+                                <label>Minuto</label>
+                                <input id="minuto" name="minuto" class="form-control" placeholder="11">
+                                <p class="help-block">Minuto</p>
+                            </div>
+
+                            <div class="form-group">
                                 <label>Segundo</label>
-                                <input id="Segundo" name="Segundo" class="form-control" placeholder="12">
-                                <p class="help-block">Segundo.</p>
+                                <input id="segundo" name="segundo" class="form-control" placeholder="55">
+                                <p class="help-block">Segundo</p>
                             </div>
 
-
-     <div class="form-group">
+                            <div class="form-group">
                                 <label>Ip</label>
-                                <input id="Ip" name="Ip" class="form-control" placeholder="05-78657">
-                                <p class="help-block">Ip.</p>
+                                <input id="ip" name="ip" class="form-control" placeholder="123.465.68">
+                                <p class="help-block">Ip</p>
                             </div>
 
-
-     <div class="form-group">
+                            <div class="form-group">
                                 <label>Navegador</label>
-                                <input id="Navegador" name="Navegador" class="form-control" placeholder="Google">
-                                <p class="help-block">Navegador.</p>
+                                <input id="navegador" name="navegador" class="form-control" placeholder="Chrome">
+                                <p class="help-block">navegador</p>
                             </div>
 
                             <div class="form-group">
                                 <label>Usuario</label>
-                                <input id="Usuario" name="Usuario" class="form-control" placeholder="mafe">
-                                <p class="help-block">Usuario.</p>
+                                <input id="usuario" name="usuario" class="form-control" placeholder="@julieth">
+                                <p class="help-block">usuario</p>
                             </div>
-
 
                             <div class="form-group">
-                                <label>Operador</label>
-                                <input id="Operador" name="Operador" class="form-control" placeholder="Operador">
-                                <p class="help-block">Operador.</p>
+                                <label>Operacion</label>
+                                <input id="operacion" name="operacion" class="form-control" placeholder="operacion">
+                                <p class="help-block">Icono</p>
                             </div>
-
-                            
-
+                    
 
                             <button type="submit" class="btn btn-default">Enviar</button>
                             <button type="reset" class="btn btn-default">Limpiar</button>

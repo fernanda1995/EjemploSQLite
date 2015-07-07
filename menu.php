@@ -11,7 +11,7 @@
                         <a href="viewconfigusuarios.php"><i class="fa fa-fw fa-table"></i> configurarusuariarios</a>
                     </li>
                      <li>
-                        <a href="viewPost.php"><i class="fa fa-paw"></i> Post</a>
+                        <a href="viewPosts.php"><i class="fa fa-paw"></i> Post</a>
                     </li>
                     <li>
                         <a href="viewLogs.php"><i class="fa fa-language"></i> Logs</a>

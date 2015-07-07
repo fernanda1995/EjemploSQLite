@@ -36,14 +36,15 @@
 			echo ($result === false) ? "<i class='fa fa-times-circle'></i> No se pudo crear la Tabla configusuarios."."<br/>" : "<i class='fa fa-check-square-o'></i> Se creo correctamente la Tabla configusuarios."."<br/>";
               
               /* Creacion de la tabla post */
-		    $query = "CREATE TABLE 'post' (
+		    $query = "CREATE TABLE 'posts' (
 						'idpost'	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-						'utc'	INTEGER NOT NULL,
 						'anio'	INTEGER NOT NULL,
 						'mes'	INTEGER NOT NULL,
+						'dia'	INTEGER NOT NULL,
 						'hora'	INTEGER NOT NULL,
 						'minuto'	INTEGER NOT NULL,
 						'segundo'	INTEGER NOT NULL,
+						'usuario'	TEXT NOT NULL,
 						'titulo'	TEXT NOT NULL,
 						'subtitulo'	TEXT NOT NULL,
 						'icono'	TEXT NOT NULL,
@@ -65,11 +66,12 @@
 						'mes'	INTEGER NOT NULL,
 						'dia'	INTEGER NOT NULL,
 						'hora'	INTEGER NOT NULL,
+						'minuto'	INTEGER NOT NULL,
 						'segundo'	INTEGER NOT NULL,
 						'ip'	TEXT NOT NULL,
 						'navegador'	TEXT NOT NULL,
 						'usuario'	TEXT NOT NULL,
-						'operador'	TEXT NOT NULL
+						'operacion'	TEXT NOT NULL
 					);"; //Creacion del query para crear la tabla.
 		    $result = $db->exec($query); //Ejecutamos el query. Se usa exec para todos los casos excepto para los select.
 		    echo ($result === false) ? "<i class='fa fa-times-circle'></i> No se pudo crear la Tabla logs."."<br/>" : "<i class='fa fa-check-square-o'></i> Se creo correctamente la Tabla logs."."<br/>";

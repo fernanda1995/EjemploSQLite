@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin - Logs</title>
+    <title>Admin - Usuarios</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -45,10 +45,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Admin Logs</a>
+                <a class="navbar-brand" href="index.html">Admin Users</a>
             </div>
 
             <?php include_once "menuitems.php" ?>
+
             <?php include_once "menu.php"; ?>
 
             <!-- /.navbar-collapse -->
@@ -77,7 +78,7 @@
                     <div class="col-lg-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-language"></i> Logs</h3>
+                                <h3 class="panel-title"><i class="fa fa-car fa-fw"></i> Logs</h3>
                             </div>
                             <div class="panel-body">
                                 
@@ -85,18 +86,17 @@
                             <thead>
                                 <tr>
                                     <th data-column-id="id" data-align="left" data-width="40px" data-type="numeric" data-order="asc">ID</th>
-                                    <th data-column-id="utc" data-width="25%" data-align="left" data-header-align="center">Utc</th>
-                                    <th data-column-id="anio" data-width="25%">Anio</th>
-                                    <th data-column-id="mes" data-width="25%">Mes</th>
-                                    <th data-column-id="dia" data-width="25%">Dia</th>
-                                    <th data-column-id="hora" data-width="25%">Hora</th>
-                                    <th data-column-id="segundo" data-width="25%">Segundo</th>
-                                    <th data-column-id="ip" data-width="25%">Ip</th>
-                                    <th data-column-id="navegador" data-width="25%">Navegador</th>
-                                    <th data-column-id="usuario" data-width="20%">Usuario</th>
-                                    <th data-column-id="operador" data-width="20%">Operador</th>
-                                 
-                                
+                                    <th data-column-id="anio" data-width="25%" data-align="left" data-header-align="center">anio</th>
+                                    <th data-column-id="mes" data-width="25%">mes</th>
+                                    <th data-column-id="dia" data-width="20%">dia</th>
+                                    <th data-column-id="hora" data-width="100px">hora</th>
+                                    <th data-column-id="minuto" data-width="100px">minuto</th>
+                                    <th data-column-id="segundo" data-width="100px">segundo</th>
+                                    <th data-column-id="ip" data-width="100px">ip</th>
+                                    <th data-column-id="navegador" data-width="100px">navegador</th>
+                                    <th data-column-id="usuario" data-width="100px">usuario</th>
+                                    <th data-column-id="operacion" data-width="100px">operacion</th>
+                                    
                                     <th data-column-id="actions" align="center" data-formatter="actions" data-width="100px">Acciones</th>
                                 </tr>
                             </thead>
@@ -109,7 +109,7 @@
                         </div>
                     </div>
                 </div>
-                <a type="button" href="addPosts.php" class="btn btn-primary pull-right"><i class="fa fa-plus fa-fw"></i> Agregar</a>
+                <a type="button" href="addLogs.php" class="btn btn-primary pull-right"><i class="fa fa-plus fa-fw"></i> Agregar</a>
 
                 
 
@@ -140,8 +140,8 @@
                 formatters: {
                     "actions": function(column, row)
                     {
-                        return "<a href=\"editPosts.php?id="+row.id+"\"><i class='fa fa-pencil fa-fw'></i></a> "+
-                        " <a href=\"crudPosts.php?id="+row.id+"&action=delete\"><i class='fa fa-minus-circle fa-fw'></i></a>";
+                        return "<a href=\"editLogs.php?id="+row.id+"\"><i class='fa fa-pencil fa-fw'></i></a> "+
+                        " <a href=\"crudLogs.php?id="+row.id+"&action=delete\"><i class='fa fa-minus-circle fa-fw'></i></a>";
                     }
                 },
                 rowCount: [-1, 25, 50, 75]

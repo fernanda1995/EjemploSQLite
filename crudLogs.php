@@ -5,41 +5,42 @@
 	if (!empty($_REQUEST['action'])){
 		$accion = $_REQUEST['action'];
 		if($accion == 'crear'){
-			crearLogs();
+			crearlogs();
 		}else if ($accion == 'ver'){
-			verLogs();
+			verlogs();
 		}else if ($accion == 'update'){
-			updateLogs();
+			updatelogs();
 		}else if ($accion == 'delete'){
-			deleteLogs();
+			deletelogs();
 		}
 
 	}
 
-	function crearLogs(){
+	function crearlogs(){
 		/* Proteccion de Datos */
 		$params = array(
-			':utc' => $_POST['Utc'],
-			':anio' => $_POST['Anio'],
-			':mes' => $_POST['Mes'],
-			':dia' => $_POST['Dia'],
-			':hora' => $_POST['Hora'],
-			':segundo' => $_POST['Segundo'],
-			':ip' => $_POST['Ip'],
-			':navegador' => $_POST['Navegador'],
-			':usuario' => $_POST['Usuario'],
-			':operador' => $_POST['Operador'],
-			
+			':anio' => $_POST['anio'],
+			':mes' => $_POST['mes'],
+			':dia' => $_POST['dia'],
+			':hora' => $_POST['hora'],
+			':minuto' => $_POST['minuto'],
+			':segundo' => $_POST['segundo'],
+			':ip' => $_POST['ip'],
+			':navegador' => $_POST['navegador'],
+			':usuario' => $_POST['usuario'],
+			':operacion' => $_POST['operacion'],
+			 		
+
 		);
 
 		/* Preparamos el query apartir del array $params*/
-		$query = 'INSERT INTO Logs
-					(Utc, Anio, Mes, Dia, Hora,Segundo,Ip,Navegador,Usuario,Operador) 
-				VALUES 
-					(:utc,:anio,:mes,:dia,:hora,:segundo,:ip,:navegador,:usuario,:operador)';
+		$query = 'INSERT INTO 
+					Logs (anio,mes,dia,hora,minuto,segundo,ip,navegador,usuario,operacion)
+				VALUES
+					(:anio,:mes,:dia,:hora,:minuto,:segundo,:ip,:navegador,:usuario,:operacion)';
 
 		/* Ejecutamos el query con los parametros */
-		$result = excuteQuery("Blog","", $query, $params);
+		$result = excuteQuery("Usuarios","", $query, $params);
 		if ($result > 0){
 			header('Location: viewLogs.php?result=true');
 		}else{
@@ -47,33 +48,33 @@
 		}
 	}
 
-	function verLogs (){
+	function verLogs(){
 		$query = "SELECT * FROM Logs";
-		$result = newQuery("Blog", "", $query);
+		$result = newQuery("Usuarios", "", $query);
 		if ($result != false || $result > 0){
 			foreach ($result as $value) {
 				echo "<tr>";
-				echo "    <td>".$value['idLogs']."</td>";
-				echo "    <td>".$value['Utc']."</td>";
-				echo "    <td>".$value['Anio']."</td>";
-				echo "    <td>".$value['Mes']."</td>";
-				echo "    <td>".$value['Dia']."</td>";
-				echo "    <td>".$value['Hora']."</td>";
-				echo "    <td>".$value['Segundo']."</td>";
-				echo "    <td>".$value['Ip']."</td>";
-				echo "    <td>".$value['Navegador']."</td>";
-				echo "    <td>".$value['Usuario']."</td>";
-				echo "    <td>".$value['Operador']."</td>";
-				echo "</tr>";
+				echo "    <td>".$value['idutc']."</td>";
+				echo "    <td>".$value['anio']."</td>";
+				echo "    <td>".$value['mes']."</td>";
+				echo "    <td>".$value['dia']."</td>";
+				echo "    <td>".$value['hora']."</td>";
+				echo "    <td>".$value['minuto']."</td>";
+				echo "    <td>".$value['segundo']."</td>";
+				echo "    <td>".$value['ip']."</td>";
+				echo "    <td>".$value['navegador']."</td>";
+				echo "    <td>".$value['usuario']."</td>";
+				echo "    <td>".$value['operacion']."</td>";
+                echo "</tr>";
 			}
 		}else{
 			echo "No se encontraron resultados";
 		}
 	}
 
-	function getUser($id){
-		$query = "SELECT * FROM Logs WHERE idLogs = '".$id."'";
-		$result = newQuery("Blog", "", $query);
+	function getLogs($id){
+		$query = "SELECT * FROM Logs WHERE idutc = '".$id."'";
+		$result = newQuery("Usuarios", "", $query);
 		if ($result != false || $result > 0){
 			foreach ($result as $value) {
 				return $value;
@@ -83,55 +84,51 @@
 		}
 	}
 
-	function updateLogs(){
+	function updateLogs (){
 
 		/* Proteccion de Datos */
 		$params = array(
-			
-			':utc' => $_POST['Utc'],
-			':anio' => $_POST['Anio'],
-			':mes' => $_POST['Mes'],
-			':dia' => $_POST['Dia'],
-			':hora' => $_POST['Hora'],
-			':segundo' => $_POST['Segundo'],
-			':ip' => $_POST['Ip'],
-			':navegador' => $_POST['Navegador'],
-			':usuario' => $_POST['Usuario'],
-			':operador' => $_POST['Operador'],
+			':idutc' => $_SESSION['idutc'],
+			':anio' => $_POST['anio'],
+			':mes' => $_POST['mes'],
+			':dia' => $_POST['dia'],
+			':hora' => $_POST['hora'],
+			':minuto' => $_POST['minuto'],
+			':segundo' => $_POST['segundo'],
+			':ip' => $_POST['ip'],
+			':navegador' => $_POST['navegador'],
+			':usuario' => $_POST['usuario'],
+			':operacion' => $_POST['operacion']
 			
 		);
 
 		/* Preparamos el query apartir del array $params*/
-		$query ='UPDATE Post SET
-					Utc = :utc,
-					Anio = :anio,
-					Mes = :mes,
-					Dia = :dia,
-					Hora = :hora , 
-					Segundo = :segundo,
-					Ip= :ip,
-					Navegador = :navegador,
-					Usuario = :usuario,
-				Operador= :operador,
-					
-				
-					
-				 WHERE idLogs = :idLog;
+		$query ='UPDATE Posts SET
+					anio = :anio,
+					mes = :mes,
+					hora = :hora,
+					minuto = :minuto,
+					segundo = :segundo,
+                    ip  =:ip,
+                    navegador=:navegador,
+                    usuario=:usuario,
+                    operacion=operacion
+				 WHERE idutc= :idutc;
 				';
 
-		$result = excuteQuery("Blog", "", $query, $params);
+		$result = excuteQuery("Usuarios", "", $query, $params);
 		if ($result > 0){
-			unset($_SESSION['idLog']);
-			$_SESSION['idPosts'] = NULL;
+			unset($_SESSION['idutc']);
+			$_SESSION['idutc'] = NULL;
 			header('Location: viewLogs.php?result=true');
 		}else{
 			header('Location: editLogs.php?result=false');
 		}
 	}
 
-	function deleteLogs (){
+	function deleteLogs(){
 
-		$idUser = $_GET['id'];
+		$idutc = $_GET['id'];
 
 		/* Proteccion de Datos */
 		$params = array(
@@ -139,10 +136,10 @@
 		);
 
 		/* Preparamos el query apartir del array $params*/
-		$query ='DELETE FROM Logs
-				 WHERE idLogs = :id;';
+		$query ='DELETE FROM Posts
+				 WHERE idutc = :id;';
 
-		$result = excuteQuery("Blog", "", $query, $params);
+		$result = excuteQuery("Usuarios", "", $query, $params);
 		if ($result > 0){
 			header('Location: viewLogs.php?result=true');
 		}else{
