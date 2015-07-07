@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin - Posts</title>
+    <title>Admin - Usuarios</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -45,10 +45,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Admin Posts</a>
+                <a class="navbar-brand" href="index.html">Admin Users</a>
             </div>
 
             <?php include_once "menuitems.php" ?>
+
             <?php include_once "menu.php"; ?>
 
             <!-- /.navbar-collapse -->
@@ -85,25 +86,25 @@
                             <thead>
                                 <tr>
                                     <th data-column-id="id" data-align="left" data-width="40px" data-type="numeric" data-order="asc">ID</th>
-                                    <th data-column-id="utc" data-width="25%" data-align="left" data-header-align="center">Utc</th>
-                                    <th data-column-id="anio" data-width="25%">Anio</th>
-                                    <th data-column-id="mes" data-width="25%">Mes</th>
-                                    <th data-column-id="dia" data-width="25%">Dia</th>
-                                    <th data-column-id="hora" data-width="25%">Hora</th>
-                                    <th data-column-id="segundo" data-width="25%">Segundo</th>
-                                    <th data-column-id="titulo" data-width="25%">Titulo</th>
-                                    <th data-column-id="subtitulo" data-width="25%">Subtitulo</th>
-                                    <th data-column-id="icono" data-width="20%">Icono</th>
-                                    <th data-column-id="texto" data-width="20%">Texto</th>
-                                    <th data-column-id="imagen" data-width="20%">Imagen</th>
-                                    <th data-column-id="video" data-width="20%">Video</th>
-                                    <th data-column-id="sonido" data-width="20%">Sonido</th>
-                                
+                                    <th data-column-id="anio" data-width="25%" data-align="left" data-header-align="center">anio</th>
+                                    <th data-column-id="mes" data-width="25%">mes</th>
+                                    <th data-column-id="dia" data-width="20%">dia</th>
+                                    <th data-column-id="hora" data-width="100px">hora</th>
+                                    <th data-column-id="minuto" data-width="100px">minuto</th>
+                                    <th data-column-id="segundo" data-width="100px">segundo</th>
+                                    <th data-column-id="usuario" data-width="100px">usuario</th>
+                                    <th data-column-id="titulo" data-width="100px">titulo</th>
+                                    <th data-column-id="subtitulo" data-width="100px">subtitulo</th>
+                                    <th data-column-id="icono" data-width="100px">icono</th>
+                                    <th data-column-id="texto" data-width="100px">texto</th>
+                                    <th data-column-id="imagen" data-width="100px">imagen</th>
+                                    <th data-column-id="video" data-width="100px">video</th>
+                                    <th data-column-id="sonido" data-width="100px">sonido</th>
                                     <th data-column-id="actions" align="center" data-formatter="actions" data-width="100px">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php echo verPost(); ?>
+                                <?php echo verPosts(); ?>
                             </tbody>
                         </table>
 

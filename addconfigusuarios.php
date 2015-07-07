@@ -78,7 +78,7 @@
                     <div class="col-lg-8">
 
     <title>Agregar - </title>
-                        <form role="form" id="frmAuto" method="post" action="crudconfigusuarios.php?action=crear">
+                        <form role="form" id="frmusu" method="post" action="crudconfigusuarios.php?action=crear">
                             <div class="form-group">
                                 <label>Usuario</label>
                                 <input id="usuario" name="usuario" class="form-control" placeholder="Fernanda">

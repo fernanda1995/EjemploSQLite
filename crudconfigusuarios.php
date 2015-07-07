@@ -41,17 +41,16 @@
 	}
 
 	function verconfigusuarios(){
-		$query = "SELECT * FROM Automovil";
+		$query = "SELECT * FROM configusuarios";
 		$result = newQuery("Usuarios", "", $query);
 		if ($result != false || $result > 0){
 			foreach ($result as $value) {
 				echo "<tr>";
-				echo "    <td>".$value['idAutomovil']."</td>";
-				echo "    <td>".$value['Marca']."</td>";
-				echo "    <td>".$value['Modelo']."</td>";
-				echo "    <td>".$value['Color']."</td>";
-				echo "    <td>".$value['Placa']."</td>";
-				echo "    <td>".$value['Estado']."</td>";
+				echo "    <td>".$value['idconfigusuarios']."</td>";
+				echo "    <td>".$value['usuario']."</td>";
+				echo "    <td>".$value['piel']."</td>";
+				echo "    <td>".$value['respuestas']."</td>";
+				
 				echo "</tr>";
 			}
 		}else{
@@ -60,7 +59,7 @@
 	}
 
 	function getconfigusuarios($id){
-		$query = "SELECT * FROM Automovil WHERE idAutomovil = '".$id."'";
+		$query = "SELECT * FROM configusuarios WHERE idconfigusuarios = '".$id."'";
 		$result = newQuery("Usuarios", "", $query);
 		if ($result != false || $result > 0){
 			foreach ($result as $value) {
@@ -75,37 +74,35 @@
 
 		/* Proteccion de Datos */
 		$params = array(
-			':idAutomovil' => $_SESSION['idAutomovil'],
-			':marca' => $_POST['marca'],
-			':modelo' => $_POST['modelo'],
-			':color' => $_POST['color'],
-			':placa' => $_POST['placa'],
-			':estado' => $_POST['estado'],
+			':idconfigusuarios' => $_SESSION['idconfigusuarios'],
+			':usuario' => $_POST['usuario'],
+			':piel' => $_POST['piel'],
+			':respuestas' => $_POST['respuestas'],
+			
 		);
 
 		/* Preparamos el query apartir del array $params*/
-		$query ='UPDATE Automovil SET
-					Marca = :marca,
-					Modelo = :modelo,
-					Color = :color,
-					Placa = :placa,
-					Estado = :estado  
-				 WHERE idAutomovil= :idAutomovil;
+		$query ='UPDATE configusuarios SET
+					usuario = :usuario,
+					piel = :piel,
+					respuestas = :respuestas
+					
+				 WHERE idconfigusuarios= :idconfigusuarios;
 				';
 
 		$result = excuteQuery("Usuarios", "", $query, $params);
 		if ($result > 0){
-			unset($_SESSION['idAutomovil']);
-			$_SESSION['idAutomovil'] = NULL;
-			header('Location: viewAutomoviles.php?result=true');
+			unset($_SESSION['idconfigusuarios']);
+			$_SESSION['idconfigusuarios'] = NULL;
+			header('Location: viewconfigusuarios.php?result=true');
 		}else{
-			header('Location: editAutomovil.php?result=false');
+			header('Location: editconfigusuarios.php?result=false');
 		}
 	}
 
-	function deleteconfig (){
+	function deleteconfigusuarios (){
 
-		$idAutomovil = $_GET['id'];
+		$idconfigusuarios = $_GET['id'];
 
 		/* Proteccion de Datos */
 		$params = array(
@@ -113,14 +110,14 @@
 		);
 
 		/* Preparamos el query apartir del array $params*/
-		$query ='DELETE FROM Automovil
-				 WHERE idAutomovil = :id;';
+		$query ='DELETE FROM configusuarios
+				 WHERE idconfigusuarios = :id;';
 
 		$result = excuteQuery("Usuarios", "", $query, $params);
 		if ($result > 0){
-			header('Location: viewAutomoviles.php?result=true');
+			header('Location: viewconfigusuarios.php?result=true');
 		}else{
-			header('Location: viewAutomoviles.php?result=false');
+			header('Location: viewconfigusuarios.php?result=false');
 		}
 	}
 

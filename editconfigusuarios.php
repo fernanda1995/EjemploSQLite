@@ -1,5 +1,5 @@
 <?php
-require_once "crudAutomoviles.php"; 
+require_once "crudconfigusuarios.php"; 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +12,7 @@ require_once "crudAutomoviles.php";
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Editar - Automovil</title>
+    <title>Editar - Configusuarios</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -61,7 +61,7 @@ require_once "crudAutomoviles.php";
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Editar Automovil
+                            Editar Configuracion de Usuarios
                         </h1>
                         <ol class="breadcrumb">
                             <li>
@@ -82,45 +82,32 @@ require_once "crudAutomoviles.php";
                 <?php }else{ ?>
 
                 <?php
-                    $_SESSION['idAutomovil'] = $_GET['id'];
-                    $arrAutomovil = getAutomovil($_SESSION['idAutomovil']);
+                    $_SESSION['idconfigusuarios'] = $_GET['id'];
+                    $arrconfigusuarios = getconfigusuarios($_SESSION['idconfigusuarios']);
                 ?>
                 <div class="row">
                     <div class="col-lg-8">
 
-                        <form role="form" id="frmEditAuto" method="post" action="crudAutomoviles.php?action=update">
+                        <form role="form" id="frmEditAuto" method="post" action="crudconfigusuarios.php?action=update">
                             <div class="form-group">
-                                <label>Marca</label>
-                                <input id="marca" name="marca" class="form-control" value="<?php echo $arrAutomovil['Marca']; ?>" placeholder="Marca Auto">
-                                <p class="help-block">Marca completa del auto.</p>
+                                <label>Usuario</label>
+                                <input id="usuario" name="usuario" class="form-control" value="<?php echo $arrconfigusuarios['usuario']; ?>" placeholder="Nombre de Usuario">
+                                <p class="help-block">Nombre Completo del Usuario.</p>
                             </div>
 
                             <div class="form-group">
-                                <label>Modelo</label>
-                                <input id="modelo" name="modelo" class="form-control" value="<?php echo $arrAutomovil['Modelo']; ?>" placeholder="Modelo Auto">
-                                <p class="help-block">Año o Referecia del Auto.</p>
+                                <label>Piel</label>
+                                <input id="piel" name="piel" class="form-control" value="<?php echo $arrconfigusuarios['piel']; ?>" placeholder="color de piel de la persona">
+                                <p class="help-block">Color de Piel del Usuario.</p>
                             </div>
 
                             <div class="form-group">
-                                <label>Color</label>
-                                <input id="color" name="color" class="form-control" value="<?php echo $arrAutomovil['Color']; ?>" placeholder="Color Auto">
-                                <p class="help-block">Color del Vehiculo.</p>
+                                <label>Respuestas</label>
+                                <input id="respuestas" name="respuestas" class="form-control" value="<?php echo $arrconfigusuarios['respuestas']; ?>" placeholder="Respuestas del Usuario">
+                                <p class="help-block">Respuesta del usuario.</p>
                             </div>
 
-                            <div class="form-group">
-                                <label>Placa</label>
-                                <input id="placa" name="placa" class="form-control" value="<?php echo $arrAutomovil['Placa']; ?>" placeholder="Numero Placa Auto">
-                                <p class="help-block">Identificacion del Vehiculo.</p>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Estado</label>
-                                <select id="estado" name="estado" class="form-control">
-                                    <option <?php echo ($arrAutomovil['Estado'] == 'Activo') ? "selected='true'" : "" ?>value="Activo">Activo</option>
-                                    <option <?php echo ($arrAutomovil['Estado'] == 'Inactivo') ? "selected='true'" : "" ?>value="Inactivo">Inactivo</option>
-                                </select>
-                            </div>
-
+                            
                             <button type="submit" class="btn btn-default">Enviar</button>
                             <button type="reset" class="btn btn-default">Limpiar</button>
 

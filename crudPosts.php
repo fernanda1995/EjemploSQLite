@@ -5,43 +5,46 @@
 	if (!empty($_REQUEST['action'])){
 		$accion = $_REQUEST['action'];
 		if($accion == 'crear'){
-			crearPost();
+			crearPosts();
 		}else if ($accion == 'ver'){
-			verPost();
+			verPosts();
 		}else if ($accion == 'update'){
-			updatePost();
+			updatePosts();
 		}else if ($accion == 'delete'){
-			deletePost();
+			deletePosts();
 		}
 
 	}
 
-	function crearPost(){
+	function crearPosts(){
 		/* Proteccion de Datos */
 		$params = array(
-			':utc' => $_POST['Utc'],
-			':anio' => $_POST['Anio'],
-			':mes' => $_POST['Mes'],
-			':dia' => $_POST['Dia'],
-			':hora' => $_POST['Hora'],
-			':segundo' => $_POST['Segundo'],
-			':titulo' => $_POST['Titulo'],
-			':subtitulo' => $_POST['SubTitulo'],
-			':icono' => $_POST['Icono'],
-			':texto' => $_POST['Texto'],
-			':imagen' => $_POST['Imagen'],
-			':video' => $_POST['Video'],
-			':sonido' => $_POST['Sonido'],
+			':anio' => $_POST['anio'],
+			':mes' => $_POST['mes'],
+			':dia' => $_POST['dia'],
+			':hora' => $_POST['hora'],
+			':minuto' => $_POST['minuto'],
+			':segundo' => $_POST['segundo'],
+			':usuario' => $_POST['usuario'],
+			':titulo' => $_POST['titulo'],
+			':subtitulo' => $_POST['subtitulo'],
+			':icono' => $_POST['icono'],
+			':texto' => $_POST['texto'],
+			':imagen' => $_POST['imagen'],
+			':video' => $_POST['video'],
+			':sonido' => $_POST['sonido']
+			
+
 		);
 
 		/* Preparamos el query apartir del array $params*/
-		$query = 'INSERT INTO Post
-					(Utc, Anio, Mes, Dia, Hora,Segundo,Titulo,SubTitulo,Icono,Texto,Imagen,Video,Sonido) 
-				VALUES 
-					(:utc,:anio,:mes,:dia,:hora,:segundo,:titulo,:subtitulo,:icono,:texto,:imagen,:video,:sonido)';
+		$query = 'INSERT INTO 
+					Posts (anio,mes,dia,hora,minuto,segundo,usuario,titulo,subtitulo,icono,texto,imagen,video,sonido)
+				VALUES
+					(:anio,:mes,:dia,:hora,:minuto,:segundo,:usuario,:titulo,:subtitulo,:icono,:texto,:imagen,:video,:sonido)';
 
 		/* Ejecutamos el query con los parametros */
-		$result = excuteQuery("Blog","", $query, $params);
+		$result = excuteQuery("Usuarios","", $query, $params);
 		if ($result > 0){
 			header('Location: viewPosts.php?result=true');
 		}else{
@@ -49,26 +52,27 @@
 		}
 	}
 
-	function verPost (){
-		$query = "SELECT * FROM Post";
-		$result = newQuery("Blog", "", $query);
+	function verPosts(){
+		$query = "SELECT * FROM Posts";
+		$result = newQuery("Usuarios", "", $query);
 		if ($result != false || $result > 0){
 			foreach ($result as $value) {
 				echo "<tr>";
-				echo "    <td>".$value['idPost']."</td>";
-				echo "    <td>".$value['Utc']."</td>";
-				echo "    <td>".$value['Anio']."</td>";
-				echo "    <td>".$value['Mes']."</td>";
-				echo "    <td>".$value['Dia']."</td>";
-				echo "    <td>".$value['Hora']."</td>";
-				echo "    <td>".$value['Segundo']."</td>";
-				echo "    <td>".$value['Titulo']."</td>";
-				echo "    <td>".$value['SubTitulo']."</td>";
-				echo "    <td>".$value['Icono']."</td>";
-				echo "    <td>".$value['Texto']."</td>";
-				echo "    <td>".$value['Imagen']."</td>";
-				echo "    <td>".$value['Video']."</td>";
-				echo "    <td>".$value['Sonido']."</td>";
+				echo "    <td>".$value['anio']."</td>";
+				echo "    <td>".$value['mes']."</td>";
+				echo "    <td>".$value['dia']."</td>";
+				echo "    <td>".$value['hora']."</td>";
+				echo "    <td>".$value['minuto']."</td>";
+				echo "    <td>".$value['segundo']."</td>";
+				echo "    <td>".$value['usuario']."</td>";
+				echo "    <td>".$value['titulo']."</td>";
+				echo "    <td>".$value['subtitulo']."</td>";
+				echo "    <td>".$value['icono']."</td>";
+                echo "    <td>".$value['texto']."</td>";
+				echo "    <td>".$value['imagen']."</td>";
+				echo "    <td>".$value['video']."</td>";
+				echo "    <td>".$value['sonido']."</td>";
+
 				echo "</tr>";
 			}
 		}else{
@@ -76,9 +80,9 @@
 		}
 	}
 
-	function getUser($id){
-		$query = "SELECT * FROM Post WHERE idPost = '".$id."'";
-		$result = newQuery("Blog", "", $query);
+	function getPosts($id){
+		$query = "SELECT * FROM Posts WHERE idposts = '".$id."'";
+		$result = newQuery("Usuarios", "", $query);
 		if ($result != false || $result > 0){
 			foreach ($result as $value) {
 				return $value;
@@ -88,58 +92,58 @@
 		}
 	}
 
-	function updatePost(){
+	function updatePosts (){
 
 		/* Proteccion de Datos */
 		$params = array(
-			
-			':utc' => $_POST['Utc'],
-			':anio' => $_POST['Anio'],
-			':mes' => $_POST['Mes'],
-			':dia' => $_POST['Dia'],
-			':hora' => $_POST['Hora'],
-			':segundo' => $_POST['Segundo'],
-			':titulo' => $_POST['Titulo'],
-			':subtitulo' => $_POST['SubTitulo'],
-			':icono' => $_POST['Icono'],
-			':texto' => $_POST['Texto'],
-			':imagen' => $_POST['Imagen'],
-			':video' => $_POST['Video'],
-			':sonido' => $_POST['Sonido'],
+			':idutc' => $_SESSION['idutc'],
+			':anio' => $_POST['anio'],
+			':mes' => $_POST['mes'],
+			':dia' => $_POST['dia'],
+			':hora' => $_POST['hora'],
+			':minuto' => $_POST['minuto'],
+			':segundo' => $_POST['segundo'],
+			':usuario' => $_POST['usuario'],
+			':titulo' => $_POST['titulo'],
+			':subtitulo' => $_POST['subtitulo'],
+			':icono' => $_POST['icono'],
+			':texto' => $_POST['texto'],
+			':imagen' => $_POST['imagen'],
+			':video' => $_POST['video'],
+			':sonido' => $_POST['sonido']
 		);
 
 		/* Preparamos el query apartir del array $params*/
-		$query ='UPDATE Post SET
-					Utc = :utc,
-					Anio = :anio,
-					Mes = :mes,
-					Dia = :dia,
-					Hora = :hora , 
-					Segundo = :segundo,
-					Titulo= :titulo,
-					SubTitulo = :subtitulo,
-					Icono= :icono,
-					Texto = :texto,
-					Imagen= :imagen,
-					Video = :video,
-					Sonido= :sonido
-					
-				 WHERE idPost = :idPosts;
+		$query ='UPDATE Posts SET
+					anio = :anio,
+					mes = :mes,
+					hora = :hora,
+					minuto = :minuto,
+					segundo = :segundo,
+                    usuario  =:usuario,
+                    titulo=:titulo,
+                    subtitulo=:subtitulo,
+                    icono=icono,
+                    texto=:texto,
+                    imagen=:imagen,
+                    video=:video,
+                    sonido=:sonido
+				 WHERE idposts= :idutc;
 				';
 
-		$result = excuteQuery("Blog", "", $query, $params);
+		$result = excuteQuery("Usuarios", "", $query, $params);
 		if ($result > 0){
-			unset($_SESSION['idPosts']);
-			$_SESSION['idPosts'] = NULL;
+			unset($_SESSION['idutc']);
+			$_SESSION['idutc'] = NULL;
 			header('Location: viewPosts.php?result=true');
 		}else{
 			header('Location: editPosts.php?result=false');
 		}
 	}
 
-	function deletePost (){
+	function deletePosts (){
 
-		$idUser = $_GET['id'];
+		$idutc = $_GET['id'];
 
 		/* Proteccion de Datos */
 		$params = array(
@@ -147,14 +151,14 @@
 		);
 
 		/* Preparamos el query apartir del array $params*/
-		$query ='DELETE FROM Post
-				 WHERE idPost = :id;';
+		$query ='DELETE FROM Posts
+				 WHERE idposts = :id;';
 
-		$result = excuteQuery("Blog", "", $query, $params);
+		$result = excuteQuery("Usuarios", "", $query, $params);
 		if ($result > 0){
 			header('Location: viewPosts.php?result=true');
 		}else{
-			header('Location: viewPosts.php?result=false');
+			header('Location: viewPost.php?result=false');
 		}
 	}
 

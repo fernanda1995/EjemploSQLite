@@ -44,10 +44,8 @@
 						'hora'	INTEGER NOT NULL,
 						'minuto'	INTEGER NOT NULL,
 						'segundo'	INTEGER NOT NULL,
-						'usuario'	TEXT NOT NULL,
 						'titulo'	TEXT NOT NULL,
 						'subtitulo'	TEXT NOT NULL,
-						'email'	TEXT NOT NULL,
 						'icono'	TEXT NOT NULL,
 						'texto'	TEXT NOT NULL,
 						'imagen'	TEXT NOT NULL,
@@ -67,12 +65,11 @@
 						'mes'	INTEGER NOT NULL,
 						'dia'	INTEGER NOT NULL,
 						'hora'	INTEGER NOT NULL,
-						'minuto'	INTEGER NOT NULL,
 						'segundo'	INTEGER NOT NULL,
 						'ip'	TEXT NOT NULL,
 						'navegador'	TEXT NOT NULL,
 						'usuario'	TEXT NOT NULL,
-						'operacion'	TEXT NOT NULL
+						'operador'	TEXT NOT NULL
 					);"; //Creacion del query para crear la tabla.
 		    $result = $db->exec($query); //Ejecutamos el query. Se usa exec para todos los casos excepto para los select.
 		    echo ($result === false) ? "<i class='fa fa-times-circle'></i> No se pudo crear la Tabla logs."."<br/>" : "<i class='fa fa-check-square-o'></i> Se creo correctamente la Tabla logs."."<br/>";
